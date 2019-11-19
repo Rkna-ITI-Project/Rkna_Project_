@@ -15,12 +15,14 @@ namespace Rkna_Project.Controllers
         private Rkna_DataBaseEntities db = new Rkna_DataBaseEntities();
 
         // GET: Company_Table
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Index()
         {
             return View(db.Company_Table.ToList());
         }
 
         // GET: Company_Table/Details/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Company_Table/Create
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
         {
             return View();
@@ -44,6 +47,7 @@ namespace Rkna_Project.Controllers
         // POST: Company_Table/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Company_Info_ID,Company_Name,Company_Desc,Com_Pnone1,Com_Pnone2,Com_Pnone3,Comp_Manger")] Company_Table company_Table)
@@ -59,6 +63,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Company_Table/Edit/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,6 +81,7 @@ namespace Rkna_Project.Controllers
         // POST: Company_Table/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Company_Info_ID,Company_Name,Company_Desc,Com_Pnone1,Com_Pnone2,Com_Pnone3,Comp_Manger")] Company_Table company_Table)
@@ -90,6 +96,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Company_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,6 +112,7 @@ namespace Rkna_Project.Controllers
         }
 
         // POST: Company_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

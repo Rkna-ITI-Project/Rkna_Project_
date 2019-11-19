@@ -13,7 +13,8 @@ using Rkna_Project.Models;
 namespace Rkna_Project.Controllers
 { 
     public class AccountController : Controller
-    { 
+    {
+        Rkna_DataBaseEntities RknaContext = new Rkna_DataBaseEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -77,8 +78,34 @@ namespace Rkna_Project.Controllers
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
+                
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        var Obj = RknaContext.AspNetUsers.Where(Us => Us.Email == model.Email).FirstOrDefault();
+                        var UserRule = RknaContext.AspNetUserRoles.Where(user => user.UserId == Obj.Id).FirstOrDefault();
+                        //var rule = (from userRule in RknaContext.AspNetUserRoles
+                        //            where userRule.UserId == UserRule.UserId
+                        //            join Rul in RknaContext.AspNetRoles on
+                        //            userRule.RoleId equals Rul.Id
+                        //            select Rul.Name
+                        //           ).FirstOrDefault();
+                        if (UserRule.RoleId == "admin")
+                        {
+                            return RedirectToLocal("~/Governorate_Table/Index");
+
+                        }
+                        else if (UserRule.RoleId == "manger")
+                        {
+                            return RedirectToLocal("~/Governorate_Table/Index");
+
+                        }
+                        else
+                        {
+                            return RedirectToLocal("~/Customer_Slut_Table/Create");
+
+                        }
+                    }
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

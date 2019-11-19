@@ -15,6 +15,7 @@ namespace Rkna_Project.Controllers
         private Rkna_DataBaseEntities db = new Rkna_DataBaseEntities();
 
         // GET: Area_Table
+
         public ActionResult Index()
         {
             var area_Table = db.Area_Table.Include(a => a.AspNetUser).Include(a => a.AspNetUser1).Include(a => a.States_Table);
@@ -37,6 +38,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Area_Table/Create
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
         {
             ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -48,6 +50,7 @@ namespace Rkna_Project.Controllers
         // POST: Area_Table/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Area_ID,States_ID,Area_Name,Area_Desc,Area_X_Point,Area_Y_Point,Area_Manger,Area_Hour_Rate,Area_Start_Time,Area_End_Time")] Area_Table area_Table)
@@ -66,6 +69,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Area_Table/Edit/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -88,6 +92,7 @@ namespace Rkna_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Edit([Bind(Include = "Area_ID,States_ID,Area_Name,Area_Desc,Area_X_Point,Area_Y_Point,Area_Manger,Area_Hour_Rate,Area_Start_Time,Area_End_Time")] Area_Table area_Table)
         {
             if (ModelState.IsValid)
@@ -103,6 +108,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Area_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,6 +124,7 @@ namespace Rkna_Project.Controllers
         }
 
         // POST: Area_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

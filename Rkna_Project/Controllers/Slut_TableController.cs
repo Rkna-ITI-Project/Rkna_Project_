@@ -22,6 +22,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Slut_Table/Details/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Slut_Table/Create
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
         {
             ViewBag.Area_ID = new SelectList(db.Area_Table, "Area_ID", "Area_Name");
@@ -46,6 +48,7 @@ namespace Rkna_Project.Controllers
         // POST: Slut_Table/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Slut_ID,Area_ID,Name,Slut_Level,Slut_X_Point,Slut_Y_Point,Slut_State")] Slut_Table slut_Table)
@@ -62,6 +65,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Slut_Table/Edit/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,6 +84,7 @@ namespace Rkna_Project.Controllers
         // POST: Slut_Table/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Slut_ID,Area_ID,Name,Slut_Level,Slut_X_Point,Slut_Y_Point,Slut_State")] Slut_Table slut_Table)
@@ -95,6 +100,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Slut_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +116,7 @@ namespace Rkna_Project.Controllers
         }
 
         // POST: Slut_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

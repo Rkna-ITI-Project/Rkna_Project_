@@ -95,6 +95,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: Car_Specifications_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +111,7 @@ namespace Rkna_Project.Controllers
         }
 
         // POST: Car_Specifications_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

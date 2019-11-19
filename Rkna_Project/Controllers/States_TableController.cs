@@ -22,6 +22,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: States_Table/Details/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: States_Table/Create
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
         {
             ViewBag.Gov_ID = new SelectList(db.Governorate_Table, "Gov_ID", "Gov_Name");
@@ -46,6 +48,7 @@ namespace Rkna_Project.Controllers
         // POST: States_Table/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "States_ID,Gov_ID,States_Name,States_Desc,States_X_Point,States_Y_Point")] States_Table states_Table)
@@ -61,6 +64,7 @@ namespace Rkna_Project.Controllers
             return View(states_Table);
         }
 
+        [Authorize(Roles = "admin,manger")]
         // GET: States_Table/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -80,6 +84,7 @@ namespace Rkna_Project.Controllers
         // POST: States_Table/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin,manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "States_ID,Gov_ID,States_Name,States_Desc,States_X_Point,States_Y_Point")] States_Table states_Table)
@@ -95,6 +100,7 @@ namespace Rkna_Project.Controllers
         }
 
         // GET: States_Table/Delete/5
+        [Authorize(Roles = "admin,manger")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +118,7 @@ namespace Rkna_Project.Controllers
         // POST: States_Table/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin,manger")]
         public ActionResult DeleteConfirmed(int id)
         {
             States_Table states_Table = db.States_Table.Find(id);
