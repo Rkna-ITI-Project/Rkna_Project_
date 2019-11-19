@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Rkna_DataBaseModelStoreContainer" CdmEntityContainer="Rkna_DataBaseEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.Area_Table">
+        <MappingFragment StoreEntitySet="Area_Table">
+          <ScalarProperty Name="Area_End_Time" ColumnName="Area_End_Time" />
+          <ScalarProperty Name="Area_Start_Time" ColumnName="Area_Start_Time" />
+          <ScalarProperty Name="Area_Hour_Rate" ColumnName="Area_Hour_Rate" />
+          <ScalarProperty Name="Area_Manger" ColumnName="Area_Manger" />
+          <ScalarProperty Name="Area_Y_Point" ColumnName="Area_Y_Point" />
+          <ScalarProperty Name="Area_X_Point" ColumnName="Area_X_Point" />
+          <ScalarProperty Name="Area_Desc" ColumnName="Area_Desc" />
+          <ScalarProperty Name="Area_Name" ColumnName="Area_Name" />
+          <ScalarProperty Name="States_ID" ColumnName="States_ID" />
+          <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_Specifications_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.Car_Specifications_Table">
+        <MappingFragment StoreEntitySet="Car_Specifications_Table">
+          <ScalarProperty Name="Car_plate_Number" ColumnName="Car_plate_Number" />
+          <ScalarProperty Name="Care_Model" ColumnName="Care_Model" />
+          <ScalarProperty Name="Car_Owner_ID" ColumnName="Car_Owner_ID" />
+          <ScalarProperty Name="Car_Spe_ID" ColumnName="Car_Spe_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.Company_Table">
+        <MappingFragment StoreEntitySet="Company_Table">
+          <ScalarProperty Name="Comp_Manger" ColumnName="Comp_Manger" />
+          <ScalarProperty Name="Com_Pnone3" ColumnName="Com_Pnone3" />
+          <ScalarProperty Name="Com_Pnone2" ColumnName="Com_Pnone2" />
+          <ScalarProperty Name="Com_Pnone1" ColumnName="Com_Pnone1" />
+          <ScalarProperty Name="Company_Desc" ColumnName="Company_Desc" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Company_Info_ID" ColumnName="Company_Info_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Slut_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.Customer_Slut_Table">
+        <MappingFragment StoreEntitySet="Customer_Slut_Table">
+          <ScalarProperty Name="Cheeck_Code" ColumnName="Cheeck_Code" />
+          <ScalarProperty Name="Cus_Slut_E_Time" ColumnName="Cus_Slut_E_Time" />
+          <ScalarProperty Name="Cus_Slut_S_Time" ColumnName="Cus_Slut_S_Time" />
+          <ScalarProperty Name="Cus_Slut_Date" ColumnName="Cus_Slut_Date" />
+          <ScalarProperty Name="Car_Spe_ID" ColumnName="Car_Spe_ID" />
+          <ScalarProperty Name="Slut_ID" ColumnName="Slut_ID" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Customer_Slut_ID" ColumnName="Customer_Slut_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Governorate_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.Governorate_Table">
+        <MappingFragment StoreEntitySet="Governorate_Table">
+          <ScalarProperty Name="Gov_Y_Point" ColumnName="Gov_Y_Point" />
+          <ScalarProperty Name="Gov_X_Point" ColumnName="Gov_X_Point" />
+          <ScalarProperty Name="Gov_Desc" ColumnName="Gov_Desc" />
+          <ScalarProperty Name="Gov_Name" ColumnName="Gov_Name" />
+          <ScalarProperty Name="Gov_ID" ColumnName="Gov_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slut_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.Slut_Table">
+        <MappingFragment StoreEntitySet="Slut_Table">
+          <ScalarProperty Name="Slut_State" ColumnName="Slut_State" />
+          <ScalarProperty Name="Slut_Y_Point" ColumnName="Slut_Y_Point" />
+          <ScalarProperty Name="Slut_X_Point" ColumnName="Slut_X_Point" />
+          <ScalarProperty Name="Slut_Level" ColumnName="Slut_Level" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+          <ScalarProperty Name="Slut_ID" ColumnName="Slut_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States_Table">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.States_Table">
+        <MappingFragment StoreEntitySet="States_Table">
+          <ScalarProperty Name="States_Y_Point" ColumnName="States_Y_Point" />
+          <ScalarProperty Name="States_X_Point" ColumnName="States_X_Point" />
+          <ScalarProperty Name="States_Desc" ColumnName="States_Desc" />
+          <ScalarProperty Name="States_Name" ColumnName="States_Name" />
+          <ScalarProperty Name="Gov_ID" ColumnName="Gov_ID" />
+          <ScalarProperty Name="States_ID" ColumnName="States_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Rkna_DataBaseModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

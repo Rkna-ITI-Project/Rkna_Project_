@@ -1,0 +1,83 @@
+﻿@model Rkna_Project.Models.Area_Table
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Area_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_Hour_Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_Hour_Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_Start_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_Start_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_End_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_End_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser1.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser1.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.States_Table.States_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.States_Table.States_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Area_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

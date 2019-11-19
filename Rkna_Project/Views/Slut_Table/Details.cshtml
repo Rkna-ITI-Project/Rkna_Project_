@@ -1,0 +1,51 @@
+﻿@model Rkna_Project.Models.Slut_Table
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Slut_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slut_Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slut_Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slut_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slut_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_Table.Area_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_Table.Area_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Slut_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

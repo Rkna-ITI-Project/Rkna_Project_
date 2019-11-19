@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Rkna_Project.Models.Company_Table>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Com_Pnone1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Com_Pnone2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Com_Pnone3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_Manger)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Com_Pnone1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Com_Pnone2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Com_Pnone3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_Manger)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Company_Info_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Company_Info_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Company_Info_ID })
+        </td>
+    </tr>
+}
+
+</table>
