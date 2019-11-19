@@ -261,6 +261,7 @@
       <DependentUpon>RknaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginUserRule.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RknaModel.Context.cs">
       <AutoGen>True</AutoGen>
