@@ -17,7 +17,38 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.Area_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control" id="Gov" name="Gov" required="required">
+                <option value="-1">Choose Governorate </option>
+            </select>
+            @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control" id="States_ID" name="States_ID" required="required">
+                @{ foreach (var item in ViewBag.State as List<Rkna_Project.Models.States_Table>)
+                    {
+                        if (item.States_ID == Model.States_ID)
+                        {
+                            <option selected value="@item.States_ID">@item.States_Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.States_ID">@item.States_Name</option>
+                        }
+                    }
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Area_Name, "Area Name", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.Area_Name, "", new { @class = "text-danger" })
@@ -25,9 +56,9 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Area_Desc, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Area_Desc, "Area Description", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Area_Desc, new { htmlAttributes = new { @class = "form-control" , required = "required" } })
+            @Html.EditorFor(model => model.Area_Desc, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.Area_Desc, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -41,15 +72,15 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Area_Hour_Rate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Area_Hour_Rate, "Area Hour Rate", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Area_Hour_Rate, new { htmlAttributes = new { @class = "form-control" , required = "required" } })
+            @Html.EditorFor(model => model.Area_Hour_Rate, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.Area_Hour_Rate, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Area_Start_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Area_Start_Time, "Area Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_Start_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.Area_Start_Time, "", new { @class = "text-danger" })
@@ -57,7 +88,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Area_End_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Area_End_Time, "Area End Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_End_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             @Html.ValidationMessageFor(model => model.Area_End_Time, "", new { @class = "text-danger" })
