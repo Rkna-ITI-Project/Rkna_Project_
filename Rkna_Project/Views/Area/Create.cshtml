@@ -1,7 +1,5 @@
 ﻿@model Rkna_Project.Models.Area_Table
-@using Kendo.Mvc.UI;
-@using Rkna_Project.Models;
-@using System.Collections.Generic;
+
 
 
 @{
@@ -25,7 +23,9 @@
             <div class="form-group">
                 @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <select class="form-control" id="Gov" name="Gov" required="required" onchange="getStateList()">
+                    <select class="form-control" id="Gov" name="Gov" required="required">
+                        <option value="-1">Choose Governorate </option>
+
                         @{ foreach (var item in ViewBag.Governorate_Table as IList<Rkna_Project.Models.Governorate_Table>)
                             {
 
@@ -40,14 +40,6 @@
                 @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <select class="form-control" id="States_ID" name="States_ID" required="required">
-
-                        @*@{ foreach (var item in ViewBag.State as IList<Rkna_Project.Models.States_Table>)
-                                {
-
-                                        <option value="@item.States_ID">@item.States_Name</option>
-
-                                }
-                            }*@
                     </select>
                     @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
                 </div>
@@ -94,6 +86,7 @@
             </div>
 
             <div class="form-group">
+                
                 @Html.LabelFor(model => model.Area_End_Time, "Area End Time", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Area_End_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
@@ -115,24 +108,35 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-<script type="text/javascript">
-        function getStateList() {
-             var X = ($("#Gov option:selected").value());
-            $('#Gov').change(function () {
-                $("#States_ID"). @{ foreach (var item in ViewBag.State as IList<Rkna_Project.Models.States_Table>)
-                    {
-                        @*if (item.Gov_ID == X)
-                        {
-                                    <option value="@item.States_ID">@item.States_Name</option>
-                                }
-                        }*@
-                   }
-            })
-        }
-</script>
+
 @section Scripts {
 
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Gov").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Area/getCity",
+                    data: "{}",
+                    success: function (data)
+                    {
+                        var s = '<option value="-1">Please Select</option>';
+                        for (var i = 0; i < data.length; i++)
+                        {
+                            if (data[i].Gov_ID == $("#Gov").val())
+                            {
+                                s += '<option value="' + data[i].States_ID + '">' + data[i].States_Name + '</option>';
+                            }
+                        }
+                        $("#States_ID").html(s);
+                    }
+                });
+            });
+        });
+
+    </script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWTHLiTeCJ8YVPGdMkZEPXzo_6FeuRwHE&sensor=true"></script>
     <section class="scripts">
 

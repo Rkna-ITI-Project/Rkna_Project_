@@ -10,67 +10,63 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table  w-auto small">
+<table class="table ">
     <tr>
-        <th>
+        <th class="col-form-label-sm">
             @Html.Label("Area Name")
         </th>
-        <th>
+        <th class="col-form-label-sm">
             @Html.Label("Area Description")
         </th>
-        <th>
+        <th class="col-form-label-sm">
             @Html.Label("Area Hour Rate")
         </th>
-        <th>
+        <th class="col-form-label-sm">
             @Html.Label("Area Start Time")
         </th>
-        <th>
+        <th class="col-form-label-sm">
             @Html.Label("Area End Time")
         </th>
-        <th>
-            @Html.Label("User Email")
+        <th class="col-form-label-sm">
+            @Html.Label("Area Manager")
         </th>
-        <th>
-            @Html.Label("Email")
-        </th>
-        <th>
+        <th class="col-form-label-sm">
             @Html.Label("States Name")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area_Desc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area_Hour_Rate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area_Start_Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area_End_Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser1.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.States_Table.States_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Area_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Area_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Area_ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.Area_Name)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.Area_Desc)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.Area_Hour_Rate)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.Area_Start_Time)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.Area_End_Time)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.DisplayFor(modelItem => item.States_Table.States_Name)
+            </td>
+            <td class="col-form-label-sm">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Area_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Area_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Area_ID })
+            </td>
+        </tr>
+    }
+</table>  
 
-</table>
+

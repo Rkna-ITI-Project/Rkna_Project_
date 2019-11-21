@@ -49,7 +49,15 @@ namespace Rkna_Project.Controllers
             ViewBag.State = db.States_Table.ToList();
             return View();
         }
-
+        public ActionResult getCity()
+        {
+            return Json(db.States_Table.Select(x => new
+            {
+                States_ID = x.States_ID,
+                States_Name = x.States_Name,
+                Gov_ID = x.Gov_ID
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
         // POST: Area_Table/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
