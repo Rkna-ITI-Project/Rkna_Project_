@@ -65,7 +65,7 @@ namespace Rkna_Project.Controllers
             ViewBag.Gov_ID = new SelectList(db.Governorate_Table, "Gov_ID", "Gov_Name", states_Table.Gov_ID);
             return View(states_Table);
         }
-
+         
         [Authorize(Roles = "admin,manger")]
         // GET: States_Table/Edit/5
         public ActionResult Edit(int? id)
