@@ -6,7 +6,7 @@
         @Html.AntiForgeryToken()
         <ul class=" navbar-nav navbar-right mr-auto">
             <li class="nav-item">@Html.ActionLink("Hello " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })</li>
-            <li class="nav-item">@Html.ActionLink("Logoff", "Login", "Account", routeValues: null, htmlAttributes: new { id = "Logoff", @class = "nav-link" })></li>
+            <li class="nav-item">@Html.ActionLink("LogOff", "LogOff", "Account", routeValues: null, htmlAttributes: new { id = "LogoffLink", @class = "nav-link" })></li>
         </ul>
     }
 }

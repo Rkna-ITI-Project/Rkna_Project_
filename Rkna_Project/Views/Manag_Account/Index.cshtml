@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Rkna_Project.Models.AspNetUserRole>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("User Name")
+        </th>
+        <th>
+            @Html.Label("Email")
+        </th>
+        <th>
+            @Html.Label("User Rule ")
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+        </td>
+    </tr>
+    }
+
+</table>

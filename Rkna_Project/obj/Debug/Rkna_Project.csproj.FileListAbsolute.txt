@@ -781,4 +781,3 @@ E:\ITI Traning\Final Project\Rkna_Project_\Rkna_Project\obj\Debug\Rkna_Project.c
 E:\ITI Traning\Final Project\Rkna_Project_\Rkna_Project\obj\Debug\Rkna_Project.csproj.CopyComplete
 E:\ITI Traning\Final Project\Rkna_Project_\Rkna_Project\obj\Debug\Rkna_Project.dll
 E:\ITI Traning\Final Project\Rkna_Project_\Rkna_Project\obj\Debug\Rkna_Project.pdb
-E:\ITI Traning\Final Project\Rkna_Project_\Rkna_Project\obj\Debug\Rkna_Project.csprojAssemblyReference.cache

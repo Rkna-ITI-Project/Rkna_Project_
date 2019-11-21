@@ -16,6 +16,12 @@
             <a class="navbar-brand" href="/">Rkna Project</a>
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul class=" navbar-nav mr-auto">
+                 
+                    @if (@Html.GetCurrentUserRule() == "admin")
+                    {
+                        <li class="nav-item"><a href="/Manag_Account/Index" class="nav-link">Account</a></li>
+
+                    }
                     @if (@Html.GetCurrentUserRule() == "manger" || @Html.GetCurrentUserRule() == "admin")
                     {
                         <li class="nav-item"><a href="/Company/Index" class="nav-link">Company</a></li>
@@ -33,6 +39,7 @@
                         <li class="nav-item"><a href="/Customer/Create" class="nav-link">Cus Slut</a></li>
 
                     }
+                    
                     <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contact</a></li>
                 </ul>
