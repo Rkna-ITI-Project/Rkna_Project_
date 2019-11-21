@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\windows\source\repos\Rkna_Project\Rkna_Project\Models\RknaModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\ITI Traning\Final Project\Rkna_Project_\Rkna_Project\Models\RknaModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

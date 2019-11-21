@@ -15,21 +15,20 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
             <a class="navbar-brand" href="/">Rkna Project</a>
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav mr-auto">
+                <ul class=" navbar-nav mr-auto">
                     @if (@Html.GetCurrentUserRule() == "manger" || @Html.GetCurrentUserRule() == "admin")
                     {
-                        <li class="nav-item"><a href="/Company_Table/Index" class="nav-link">Company Info</a></li>
-                        <li class="nav-item"><a href="/Governorate_Table/Index" class="nav-link">Governorate</a></li>
-                        <li class="nav-item"><a href="/States_Table/Index" class="nav-link">States</a></li>
-                        <li class="nav-item"><a href="/Area_Table/Index" class="nav-link">Area</a></li>
-                        <li class="nav-item"><a href="/Slut_Table/Index" class="nav-link">Slut</a></li>
-                        <li class="nav-item"><a href="/Car_Specifications_Table/Index" class="nav-link">Car Specifications</a></li>
-                        <li class="nav-item"><a href="/Customer_Slut_Table/Index" class="nav-link">Customer Slut</a></li>
-                        @*<input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">Search</button>*@
+                    <li class="nav-item"><a href="/Company/Index" class="nav-link">Company</a></li>
+                    <li class="nav-item"><a href="/Governorate/Index" class="nav-link">Gov</a></li>
+                    <li class="nav-item"><a href="/States/Index" class="nav-link">States</a></li>
+                    <li class="nav-item"><a href="/Area/Index" class="nav-link">Area</a></li>
+                    <li class="nav-item"><a href="/Slut/Index" class="nav-link">Slut</a></li>
+                    <li class="nav-item"><a href="/Car/Index" class="nav-link">Car</a></li>
+                    <li class="nav-item"><a href="/Customer/Index" class="nav-link">Cus Slut</a></li>
+        
                     }
-                    <li class="nav-item"><a href="/Home/About" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contact</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

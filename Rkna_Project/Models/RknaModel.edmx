@@ -29,6 +29,7 @@
           <Property Name="Area_Hour_Rate" Type="money" Nullable="false" />
           <Property Name="Area_Start_Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="Area_End_Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -89,6 +90,7 @@
           <Property Name="Car_Owner_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Care_Model" Type="nvarchar" MaxLength="50" />
           <Property Name="Car_plate_Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
         <EntityType Name="Company_Table">
           <Key>
@@ -114,6 +116,7 @@
           <Property Name="Cus_Slut_S_Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="Cus_Slut_E_Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="Cheeck_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
         <EntityType Name="Governorate_Table">
           <Key>
@@ -124,6 +127,7 @@
           <Property Name="Gov_Desc" Type="text" />
           <Property Name="Gov_X_Point" Type="varchar" MaxLength="70" />
           <Property Name="Gov_Y_Point" Type="varchar" MaxLength="70" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
         <EntityType Name="Slut_Table">
           <Key>
@@ -136,27 +140,19 @@
           <Property Name="Slut_X_Point" Type="varchar" MaxLength="70" />
           <Property Name="Slut_Y_Point" Type="varchar" MaxLength="70" />
           <Property Name="Slut_State" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
         <EntityType Name="States_Table">
           <Key>
             <PropertyRef Name="States_ID" />
           </Key>
-          <Property Name="States_ID" Type="int" Nullable="false" />
+          <Property Name="States_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Gov_ID" Type="int" Nullable="false" />
           <Property Name="States_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="States_Desc" Type="text" />
           <Property Name="States_X_Point" Type="varchar" MaxLength="70" />
           <Property Name="States_Y_Point" Type="varchar" MaxLength="70" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
         <Association Name="FK_Area_Table_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
@@ -322,7 +318,6 @@
           <EntitySet Name="Governorate_Table" EntityType="Self.Governorate_Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slut_Table" EntityType="Self.Slut_Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States_Table" EntityType="Self.States_Table" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Area_Table_AspNetUsers" Association="Self.FK_Area_Table_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Area_Table" EntitySet="Area_Table" />
@@ -390,7 +385,6 @@
           <EntitySet Name="Governorate_Table" EntityType="Rkna_DataBaseModel.Governorate_Table" />
           <EntitySet Name="Slut_Table" EntityType="Rkna_DataBaseModel.Slut_Table" />
           <EntitySet Name="States_Table" EntityType="Rkna_DataBaseModel.States_Table" />
-          <EntitySet Name="sysdiagrams" EntityType="Rkna_DataBaseModel.sysdiagram" />
           <AssociationSet Name="FK_Area_Table_AspNetUsers" Association="Rkna_DataBaseModel.FK_Area_Table_AspNetUsers">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Area_Table" EntitySet="Area_Table" />
@@ -464,6 +458,7 @@
           <Property Name="Area_Hour_Rate" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Area_Start_Time" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Area_End_Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="AspNetUser" Relationship="Rkna_DataBaseModel.FK_Area_Table_AspNetUsers" FromRole="Area_Table" ToRole="AspNetUser" />
           <NavigationProperty Name="AspNetUser1" Relationship="Rkna_DataBaseModel.FK_Area_Table_AspNetUsers1" FromRole="Area_Table" ToRole="AspNetUser" />
           <NavigationProperty Name="States_Table" Relationship="Rkna_DataBaseModel.FK_Area_Table_States_Table" FromRole="Area_Table" ToRole="States_Table" />
@@ -538,6 +533,7 @@
           <Property Name="Car_Owner_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Care_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Car_plate_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="AspNetUser" Relationship="Rkna_DataBaseModel.FK_Car_Specifications_Table_AspNetUsers" FromRole="Car_Specifications_Table" ToRole="AspNetUser" />
           <NavigationProperty Name="Customer_Slut_Table" Relationship="Rkna_DataBaseModel.FK_Customer_Slut_Table_Car_Specifications_Table" FromRole="Car_Specifications_Table" ToRole="Customer_Slut_Table" />
         </EntityType>
@@ -565,6 +561,7 @@
           <Property Name="Cus_Slut_S_Time" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Cus_Slut_E_Time" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Cheeck_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="AspNetUser" Relationship="Rkna_DataBaseModel.FK_Customer_Slut_Table_AspNetUsers" FromRole="Customer_Slut_Table" ToRole="AspNetUser" />
           <NavigationProperty Name="Car_Specifications_Table" Relationship="Rkna_DataBaseModel.FK_Customer_Slut_Table_Car_Specifications_Table" FromRole="Customer_Slut_Table" ToRole="Car_Specifications_Table" />
           <NavigationProperty Name="Slut_Table" Relationship="Rkna_DataBaseModel.FK_Customer_Slut_Table_Slut_Table" FromRole="Customer_Slut_Table" ToRole="Slut_Table" />
@@ -578,6 +575,7 @@
           <Property Name="Gov_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Gov_X_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="Gov_Y_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="States_Table" Relationship="Rkna_DataBaseModel.FK_States_Table_Governorate_Table" FromRole="Governorate_Table" ToRole="States_Table" />
         </EntityType>
         <EntityType Name="Slut_Table">
@@ -591,6 +589,7 @@
           <Property Name="Slut_X_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="Slut_Y_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="Slut_State" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="Area_Table" Relationship="Rkna_DataBaseModel.FK_Slut_Table_Area_Table" FromRole="Slut_Table" ToRole="Area_Table" />
           <NavigationProperty Name="Customer_Slut_Table" Relationship="Rkna_DataBaseModel.FK_Customer_Slut_Table_Slut_Table" FromRole="Slut_Table" ToRole="Customer_Slut_Table" />
         </EntityType>
@@ -598,24 +597,15 @@
           <Key>
             <PropertyRef Name="States_ID" />
           </Key>
-          <Property Name="States_ID" Type="Int32" Nullable="false" />
+          <Property Name="States_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Gov_ID" Type="Int32" Nullable="false" />
           <Property Name="States_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="States_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="States_X_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="States_Y_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="Area_Table" Relationship="Rkna_DataBaseModel.FK_Area_Table_States_Table" FromRole="States_Table" ToRole="Area_Table" />
           <NavigationProperty Name="Governorate_Table" Relationship="Rkna_DataBaseModel.FK_States_Table_Governorate_Table" FromRole="States_Table" ToRole="Governorate_Table" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Area_Table_AspNetUsers">
           <End Type="Rkna_DataBaseModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -786,6 +776,7 @@
           <EntitySetMapping Name="Area_Table">
             <EntityTypeMapping TypeName="Rkna_DataBaseModel.Area_Table">
               <MappingFragment StoreEntitySet="Area_Table">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Area_End_Time" ColumnName="Area_End_Time" />
                 <ScalarProperty Name="Area_Start_Time" ColumnName="Area_Start_Time" />
                 <ScalarProperty Name="Area_Hour_Rate" ColumnName="Area_Hour_Rate" />
@@ -855,6 +846,7 @@
           <EntitySetMapping Name="Car_Specifications_Table">
             <EntityTypeMapping TypeName="Rkna_DataBaseModel.Car_Specifications_Table">
               <MappingFragment StoreEntitySet="Car_Specifications_Table">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Car_plate_Number" ColumnName="Car_plate_Number" />
                 <ScalarProperty Name="Care_Model" ColumnName="Care_Model" />
                 <ScalarProperty Name="Car_Owner_ID" ColumnName="Car_Owner_ID" />
@@ -878,6 +870,7 @@
           <EntitySetMapping Name="Customer_Slut_Table">
             <EntityTypeMapping TypeName="Rkna_DataBaseModel.Customer_Slut_Table">
               <MappingFragment StoreEntitySet="Customer_Slut_Table">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Cheeck_Code" ColumnName="Cheeck_Code" />
                 <ScalarProperty Name="Cus_Slut_E_Time" ColumnName="Cus_Slut_E_Time" />
                 <ScalarProperty Name="Cus_Slut_S_Time" ColumnName="Cus_Slut_S_Time" />
@@ -892,6 +885,7 @@
           <EntitySetMapping Name="Governorate_Table">
             <EntityTypeMapping TypeName="Rkna_DataBaseModel.Governorate_Table">
               <MappingFragment StoreEntitySet="Governorate_Table">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Gov_Y_Point" ColumnName="Gov_Y_Point" />
                 <ScalarProperty Name="Gov_X_Point" ColumnName="Gov_X_Point" />
                 <ScalarProperty Name="Gov_Desc" ColumnName="Gov_Desc" />
@@ -903,6 +897,7 @@
           <EntitySetMapping Name="Slut_Table">
             <EntityTypeMapping TypeName="Rkna_DataBaseModel.Slut_Table">
               <MappingFragment StoreEntitySet="Slut_Table">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Slut_State" ColumnName="Slut_State" />
                 <ScalarProperty Name="Slut_Y_Point" ColumnName="Slut_Y_Point" />
                 <ScalarProperty Name="Slut_X_Point" ColumnName="Slut_X_Point" />
@@ -916,23 +911,13 @@
           <EntitySetMapping Name="States_Table">
             <EntityTypeMapping TypeName="Rkna_DataBaseModel.States_Table">
               <MappingFragment StoreEntitySet="States_Table">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="States_Y_Point" ColumnName="States_Y_Point" />
                 <ScalarProperty Name="States_X_Point" ColumnName="States_X_Point" />
                 <ScalarProperty Name="States_Desc" ColumnName="States_Desc" />
                 <ScalarProperty Name="States_Name" ColumnName="States_Name" />
                 <ScalarProperty Name="Gov_ID" ColumnName="Gov_ID" />
                 <ScalarProperty Name="States_ID" ColumnName="States_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Rkna_DataBaseModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -11,9 +11,7 @@ namespace Rkna_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    [MetadataType(typeof(MetaData.Area_TableMeta))]
+    
     public partial class Area_Table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,12 +30,12 @@ namespace Rkna_Project.Models
         public decimal Area_Hour_Rate { get; set; }
         public System.TimeSpan Area_Start_Time { get; set; }
         public System.TimeSpan Area_End_Time { get; set; }
+        public Nullable<bool> Deleted { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual AspNetUser AspNetUser1 { get; set; }
         public virtual States_Table States_Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Slut_Table> Slut_Table { get; set; }
-        //tesgg
     }
 }

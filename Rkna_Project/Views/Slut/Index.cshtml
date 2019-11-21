@@ -1,15 +1,16 @@
-﻿@model IEnumerable<Rkna_Project.MetaData.Slut_TableMeta>
+﻿@model IEnumerable<Rkna_Project.Models.Slut_Table>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateSlut")
+    @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table  w-auto small">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -19,6 +20,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Slut_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area_Table.Area_Name)
         </th>
         <th></th>
     </tr>
@@ -35,9 +39,12 @@
             @Html.DisplayFor(modelItem => item.Slut_State)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.Area_Table.Area_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Slut_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Slut_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Slut_ID })
         </td>
     </tr>
 }

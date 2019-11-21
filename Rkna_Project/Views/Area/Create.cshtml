@@ -1,0 +1,206 @@
+﻿@model Rkna_Project.Models.Area_Table
+@using Kendo.Mvc.UI;
+@using Rkna_Project.Models;
+@using System.Collections.Generic;
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Area_Table</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="form-group">
+                @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select class="form-control" id="Gov" name="Gov" required="required" onchange="getStateList()">
+                        @{ foreach (var item in ViewBag.Governorate_Table as IList<Rkna_Project.Models.Governorate_Table>)
+                            {
+
+                                <option value="@item.Gov_ID">@item.Gov_Name</option>
+                            }
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select class="form-control" id="States_ID" name="States_ID" required="required">
+
+                        @*@{ foreach (var item in ViewBag.State as IList<Rkna_Project.Models.States_Table>)
+                                {
+
+                                        <option value="@item.States_ID">@item.States_Name</option>
+
+                                }
+                            }*@
+                    </select>
+                    @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area_Name, "Area Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Area_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Area_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area_Desc, "Area Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Area_Desc, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Area_Desc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area_Manger, "Area_Manger", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Area_Manger", null, htmlAttributes: new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Area_Manger, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area_Hour_Rate, "Area Hour Rate", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Area_Hour_Rate, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Area_Hour_Rate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area_Start_Time, "Area Start Time ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Area_Start_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Area_Start_Time, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area_End_Time, "Area End Time", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Area_End_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Area_End_Time, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div id="map_canvas" style="height: 400px;"></div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script type="text/javascript">
+        function getStateList() {
+             var X = ($("#Gov option:selected").value());
+            $('#Gov').change(function () {
+                $("#States_ID"). @{ foreach (var item in ViewBag.State as IList<Rkna_Project.Models.States_Table>)
+                    {
+                        @*if (item.Gov_ID == X)
+                        {
+                                    <option value="@item.States_ID">@item.States_Name</option>
+                                }
+                        }*@
+                   }
+            })
+        }
+</script>
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWTHLiTeCJ8YVPGdMkZEPXzo_6FeuRwHE&sensor=true"></script>
+    <section class="scripts">
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                Initialize();
+            });
+
+            function Initialize() {
+
+                google.maps.visualRefresh = true;
+                var Liverpool = new google.maps.LatLng(53.408841, -2.981397);
+
+                // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+                var mapOptions = {
+                    zoom: 14,
+                    center: Liverpool,
+                    mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+                };
+
+                // This makes the div with id "map_canvas" a google map
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                // This shows adding a simple pin "marker" - this happens to be the Tate Gallery in Liverpool!
+                var myLatlng = new google.maps.LatLng(53.40091, -2.994464);
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'Tate Gallery'
+                });
+
+                // You can make markers different colors...  google it up!
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
+
+                // a sample list of JSON encoded data of places to visit in Liverpool, UK
+                // you can either make up a JSON list server side, or call it from a controller using JSONResult
+                var data = [
+                    { "Id": 1, "PlaceName": "Al Minia Governate", "OpeningHours": "9-5, M-F", "GeoLong": "30.756100", "GeoLat": "28.088970" },
+
+                ];
+
+                // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+                $.each(data, function (i, item) {
+                    var marker = new google.maps.Marker({
+                        'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                        'map': map,
+                        'title': item.PlaceName
+                    });
+
+                    // Make the marker-pin blue!
+                    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                    // put in some information about each json object - in this case, the opening hours.
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<div class='infoDiv'><h2>" + item.PlaceName + "</h2>" + "<div><h4>Opening hours: " + item.OpeningHours + "</h4></div></div>"
+                    });
+
+                    // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                })
+            }
+
+
+        </script>
+    </section>
+}

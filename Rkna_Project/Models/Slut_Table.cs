@@ -11,8 +11,7 @@ namespace Rkna_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    [MetadataType(typeof(MetaData.Slut_TableMeta))]
+    
     public partial class Slut_Table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,6 +27,7 @@ namespace Rkna_Project.Models
         public string Slut_X_Point { get; set; }
         public string Slut_Y_Point { get; set; }
         public bool Slut_State { get; set; }
+        public Nullable<bool> Deleted { get; set; }
     
         public virtual Area_Table Area_Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

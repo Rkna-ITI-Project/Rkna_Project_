@@ -24,6 +24,7 @@
     <Property Name="Area_Hour_Rate" Type="money" Nullable="false" />
     <Property Name="Area_Start_Time" Type="time" Precision="7" Nullable="false" />
     <Property Name="Area_End_Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Deleted" Type="bit" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
@@ -84,6 +85,7 @@
     <Property Name="Car_Owner_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Care_Model" Type="nvarchar" MaxLength="50" />
     <Property Name="Car_plate_Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Deleted" Type="bit" />
   </EntityType>
   <EntityType Name="Company_Table">
     <Key>
@@ -109,6 +111,7 @@
     <Property Name="Cus_Slut_S_Time" Type="time" Precision="7" Nullable="false" />
     <Property Name="Cus_Slut_E_Time" Type="time" Precision="7" Nullable="false" />
     <Property Name="Cheeck_Code" Type="varchar" MaxLength="50" />
+    <Property Name="Deleted" Type="bit" />
   </EntityType>
   <EntityType Name="Governorate_Table">
     <Key>
@@ -119,6 +122,7 @@
     <Property Name="Gov_Desc" Type="text" />
     <Property Name="Gov_X_Point" Type="varchar" MaxLength="70" />
     <Property Name="Gov_Y_Point" Type="varchar" MaxLength="70" />
+    <Property Name="Deleted" Type="bit" />
   </EntityType>
   <EntityType Name="Slut_Table">
     <Key>
@@ -131,27 +135,19 @@
     <Property Name="Slut_X_Point" Type="varchar" MaxLength="70" />
     <Property Name="Slut_Y_Point" Type="varchar" MaxLength="70" />
     <Property Name="Slut_State" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" />
   </EntityType>
   <EntityType Name="States_Table">
     <Key>
       <PropertyRef Name="States_ID" />
     </Key>
-    <Property Name="States_ID" Type="int" Nullable="false" />
+    <Property Name="States_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Gov_ID" Type="int" Nullable="false" />
     <Property Name="States_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="States_Desc" Type="text" />
     <Property Name="States_X_Point" Type="varchar" MaxLength="70" />
     <Property Name="States_Y_Point" Type="varchar" MaxLength="70" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="Deleted" Type="bit" />
   </EntityType>
   <Association Name="FK_Area_Table_AspNetUsers">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
@@ -317,7 +313,6 @@
     <EntitySet Name="Governorate_Table" EntityType="Self.Governorate_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Slut_Table" EntityType="Self.Slut_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="States_Table" EntityType="Self.States_Table" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Area_Table_AspNetUsers" Association="Self.FK_Area_Table_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Area_Table" EntitySet="Area_Table" />

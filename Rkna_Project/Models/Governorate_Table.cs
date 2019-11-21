@@ -11,8 +11,7 @@ namespace Rkna_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    [MetadataType(typeof( MetaData.Governorate_TableMeta))]
+    
     public partial class Governorate_Table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,6 +25,7 @@ namespace Rkna_Project.Models
         public string Gov_Desc { get; set; }
         public string Gov_X_Point { get; set; }
         public string Gov_Y_Point { get; set; }
+        public Nullable<bool> Deleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<States_Table> States_Table { get; set; }

@@ -94,12 +94,12 @@ namespace Rkna_Project.Controllers
                         LoginUserRule.SetRule(UserRule.RoleId);
                         if (UserRule.RoleId == "admin")
                         {
-                            return RedirectToLocal("~/Governorate_Table/Index");
+                            return RedirectToLocal("~/Governorate/Index");
 
                         }
                         else if (UserRule.RoleId == "manger")
                         {
-                            return RedirectToLocal("~/Governorate_Table/Index");
+                            return RedirectToLocal("~/Governorate/Index");
 
                         }
                         else

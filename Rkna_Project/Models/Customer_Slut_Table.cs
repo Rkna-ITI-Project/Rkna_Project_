@@ -11,8 +11,7 @@ namespace Rkna_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    [MetadataType(typeof(MetaData.Customer_Slut_TableMeta))]
+    
     public partial class Customer_Slut_Table
     {
         public int Customer_Slut_ID { get; set; }
@@ -23,6 +22,7 @@ namespace Rkna_Project.Models
         public System.TimeSpan Cus_Slut_S_Time { get; set; }
         public System.TimeSpan Cus_Slut_E_Time { get; set; }
         public string Cheeck_Code { get; set; }
+        public Nullable<bool> Deleted { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Car_Specifications_Table Car_Specifications_Table { get; set; }

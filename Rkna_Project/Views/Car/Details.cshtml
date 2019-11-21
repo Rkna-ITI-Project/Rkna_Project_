@@ -1,0 +1,45 @@
+﻿@model Rkna_Project.Models.Car_Specifications_Table
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Car_Specifications_Table</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                @Html.Label("Car Model")
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Care_Model)
+            </td>
+
+            <td>
+                @Html.Label("Car plate Number")
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Car_plate_Number)
+            </td>
+
+            <td>
+                @Html.Label("Car Owner")
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.AspNetUser.Email)
+            </td>
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Car_Spe_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

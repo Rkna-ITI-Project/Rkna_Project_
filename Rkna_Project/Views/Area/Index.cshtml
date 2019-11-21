@@ -1,33 +1,40 @@
-﻿@model IEnumerable<Rkna_Project.MetaData.Area_TableMeta>
+﻿@model IEnumerable<Rkna_Project.Models.Area_Table>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateArea")
+    @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table  w-auto small">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Area_Name)
+            @Html.Label("Area Name")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area_Desc)
+            @Html.Label("Area Description")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area_Manger)
+            @Html.Label("Area Hour Rate")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area_Hour_Rate)
+            @Html.Label("Area Start Time")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area_Start_Time)
+            @Html.Label("Area End Time")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area_End_Time)
+            @Html.Label("User Email")
+        </th>
+        <th>
+            @Html.Label("Email")
+        </th>
+        <th>
+            @Html.Label("States Name")
         </th>
         <th></th>
     </tr>
@@ -41,9 +48,6 @@
             @Html.DisplayFor(modelItem => item.Area_Desc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Area_Manger)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Area_Hour_Rate)
         </td>
         <td>
@@ -53,9 +57,18 @@
             @Html.DisplayFor(modelItem => item.Area_End_Time)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser1.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.States_Table.States_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Area_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Area_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Area_ID })
         </td>
     </tr>
 }

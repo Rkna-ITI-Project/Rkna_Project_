@@ -42,3 +42,12 @@ textarea {
         width: inherit;
     }
 
+.infoDiv {
+    height: 150px;
+    width: 300px;
+    -webkit-user-select: none;
+    background-color: white;
+}
+#map_canvas img {
+    max-width: none
+}

@@ -38,6 +38,5 @@ namespace Rkna_Project.Models
         public virtual DbSet<Governorate_Table> Governorate_Table { get; set; }
         public virtual DbSet<Slut_Table> Slut_Table { get; set; }
         public virtual DbSet<States_Table> States_Table { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
