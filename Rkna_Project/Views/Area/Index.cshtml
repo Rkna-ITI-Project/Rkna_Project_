@@ -12,25 +12,25 @@
 </p>
 <table class="table ">
     <tr>
-        <th class="col-form-label-sm">
-            @Html.Label("Area Name")
+        <th class="col-form-label-col-md-3">
+            @Html.Label("Name")
         </th>
-        <th class="col-form-label-sm">
-            @Html.Label("Area Description")
+        <th class="col-form-label-col-md-2">
+            @Html.Label("Description")
         </th>
-        <th class="col-form-label-sm">
-            @Html.Label("Area Hour Rate")
+        <th class="col-form-label-col-md-1">
+            @Html.Label("Hour Rate")
         </th>
-        <th class="col-form-label-sm">
-            @Html.Label("Area Start Time")
+        <th class="col-form-label-col-md-2">
+            @Html.Label("Start Time")
         </th>
-        <th class="col-form-label-sm">
-            @Html.Label("Area End Time")
+        <th class="col-form-label-col-md-1">
+            @Html.Label("End Time")
         </th>
-        <th class="col-form-label-sm">
-            @Html.Label("Area Manager")
+        <th class="col-form-label-col-md-1">
+            @Html.Label("Manager")
         </th>
-        <th class="col-form-label-sm">
+        <th class="col-form-label-col-md-2">
             @Html.Label("States Name")
         </th>
         <th></th>
@@ -39,28 +39,28 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-3">
                 @Html.DisplayFor(modelItem => item.Area_Name)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-2">
                 @Html.DisplayFor(modelItem => item.Area_Desc)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-1">
                 @Html.DisplayFor(modelItem => item.Area_Hour_Rate)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-1">
                 @Html.DisplayFor(modelItem => item.Area_Start_Time)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-1">
                 @Html.DisplayFor(modelItem => item.Area_End_Time)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-1">
                 @Html.DisplayFor(modelItem => item.AspNetUser.Email)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-1">
                 @Html.DisplayFor(modelItem => item.States_Table.States_Name)
             </td>
-            <td class="col-form-label-sm">
+            <td class="col-form-label-col-md-2">
                 @Html.ActionLink("Edit", "Edit", new { id = item.Area_ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Area_ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Area_ID })
