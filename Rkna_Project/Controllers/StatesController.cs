@@ -11,9 +11,12 @@ using Rkna_Project.Models;
 namespace Rkna_Project.Controllers
 {
     public class StatesController : Controller
-    {
+    {//hhhhh
         private Rkna_DataBaseEntities db = new Rkna_DataBaseEntities();
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         // GET: States_Table
         [Authorize(Roles = "admin,manger")]
         public ActionResult Index()
@@ -129,7 +132,7 @@ namespace Rkna_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        //hfhfhhffhfhf
         protected override void Dispose(bool disposing)
         {
             if (disposing)
