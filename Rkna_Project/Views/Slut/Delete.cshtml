@@ -9,45 +9,65 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Slut_Table</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <h4>Slut</h4>
+    <table class="table">
+        <tr>
+            <td>
+                @Html.Label("Name")
+            </td>
+            <td>
+                @Html.Label("Level")
+            </td>
+            <td>
+                @Html.Label("State")
+            </td>
+            <td>
+                @Html.Label("Area Name")
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Slut_Level)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Slut_State)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Area_Table.Area_Name)
+            </td>
+        </tr>
+    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Slut_Level)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Slut_Level)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Slut_State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Slut_State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Area_Table.Area_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Area_Table.Area_Name)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div id="map_canvas" style="height: 400px;"></div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Address", htmlAttributes: new { id = "address", @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.Editor(" ", new { htmlAttributes = new { id = "address", @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Slut_X_Point, "Longitude", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Slut_X_Point, new { htmlAttributes = new { id = "Longitude", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Slut_X_Point, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Slut_Y_Point, "Latitude", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Slut_Y_Point, new { htmlAttributes = new { id = "Latitude", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Slut_Y_Point, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
@@ -55,3 +75,9 @@
         </div>
     }
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWTHLiTeCJ8YVPGdMkZEPXzo_6FeuRwHE&sensor=true"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Site.js")"></script>
+}
