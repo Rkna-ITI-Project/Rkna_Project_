@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Rkna_Project.Models;
+using Rkna_Project.Models; 
 
 namespace Rkna_Project.Controllers
 { 

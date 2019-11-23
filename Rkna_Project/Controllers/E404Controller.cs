@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace Rkna_Project.Controllers
 {
     public class E404Controller : Controller
-    {
+    { 
         // GET: E404
         public ActionResult Index()
         {

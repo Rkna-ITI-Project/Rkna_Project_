@@ -8,7 +8,7 @@ namespace Rkna_Project.Controllers
 {
     public class MapController : Controller
     {
-        // GET: Map
+        // GET: Map 
         public ActionResult Index()
         {
             return View();

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Rkna_Project.Models;
+using Rkna_Project.Models; 
 
 namespace Rkna_Project.Controllers
 {

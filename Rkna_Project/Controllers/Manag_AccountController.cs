@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Rkna_Project.Controllers
 {
-    public class Manag_AccountController : Controller
+    public class Manag_AccountController : Controller 
     {
         Rkna_DataBaseEntities db = new Rkna_DataBaseEntities();
         // GET: Manag_Account

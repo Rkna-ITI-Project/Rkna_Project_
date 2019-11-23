@@ -12,7 +12,7 @@ namespace Rkna_Project.Controllers
 {
     public class SlutController : Controller
     {
-        private Rkna_DataBaseEntities db = new Rkna_DataBaseEntities();
+        private Rkna_DataBaseEntities db = new Rkna_DataBaseEntities(); 
 
         [Authorize(Roles = "admin,manger")]
         // GET: Slut_Table

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Rkna_Project.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller 
     {
         // [Authorize(Roles = "user")]
         public ActionResult Index()

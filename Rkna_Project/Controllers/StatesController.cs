@@ -14,7 +14,7 @@ namespace Rkna_Project.Controllers
     {
         private Rkna_DataBaseEntities db = new Rkna_DataBaseEntities();
 
-        // GET: States_Table
+        // GET: States_Table 
         [Authorize(Roles = "admin,manger")]
         public ActionResult Index()
         {

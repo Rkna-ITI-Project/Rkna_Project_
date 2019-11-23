@@ -18,7 +18,7 @@ var marker;
         position: myLatlng,
         draggable: true
     });
-
+             
             geocoder.geocode({'latLng': myLatlng }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
