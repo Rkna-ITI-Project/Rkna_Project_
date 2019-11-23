@@ -14,6 +14,9 @@ namespace Rkna_Project.MetaData
         {
             this.States_Table = new HashSet<States_Table>();
         }
+        public partial class Governorate_Table
+        {
+        }
         public int Gov_ID { get; set; }
         [Required(ErrorMessage = "Governorate is Required")]
         [MinLength(3)]

@@ -32,11 +32,14 @@ textarea {
     left: 0;
     z-index: 20;
 }
-.navbar-wrapper > .container {
+
+    /* Flip around the padding for proper display in narrow viewports */
+    .navbar-wrapper > .container {
         padding-right: 0;
         padding-left: 0;
         width: inherit;
     }
+
 .infoDiv {
     height: 150px;
     width: 300px;

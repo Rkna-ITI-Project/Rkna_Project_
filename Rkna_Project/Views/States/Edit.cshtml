@@ -22,7 +22,7 @@
         @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             <select class="form-control" id="Gov_ID" name="Gov_ID" required="required"> 
-                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
+                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>) 
                     {
                         if (item.Gov_ID == Model.Gov_ID)
                         {
