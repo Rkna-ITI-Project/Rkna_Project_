@@ -42,7 +42,7 @@ namespace Rkna_Project.Controllers
         // GET: Area_Table/Create
         [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
-        {
+        {   
             ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();

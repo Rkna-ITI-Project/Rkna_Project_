@@ -5,7 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<br />
+<br />
+
+<h2>Edit @Html.DisplayFor(model => model.States_Name) State </h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +16,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>State</h4>
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.States_ID)
@@ -21,8 +24,8 @@
     <div class="form-group">
         @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
-            <select class="form-control" id="Gov_ID" name="Gov_ID" required="required"> 
-                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>) 
+            <select class="form-control" id="Gov_ID" name="Gov_ID" required="required">
+                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
                     {
                         if (item.Gov_ID == Model.Gov_ID)
                         {
@@ -36,14 +39,17 @@
                     }
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.Gov_ID, "", new { @class = "text-danger" })
+            <br />
+
+            @Html.ValidationMessageFor(model => model.Governorate_Table.Gov_Name, "", new { @class = "text-danger" })
         </div>
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.States_Name, htmlAttributes: new { @class = "control-label col-md-6" })
+        @Html.LabelFor(model => model.States_Name, "State Name", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.States_Name, "State Name", new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            @Html.EditorFor(model => model.States_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            <br />
             @Html.ValidationMessageFor(model => model.States_Name, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -52,6 +58,7 @@
         @Html.LabelFor(model => model.States_Desc, "State Description", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.States_Desc, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
             @Html.ValidationMessageFor(model => model.States_Desc, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -78,7 +85,13 @@
             @Html.ValidationMessageFor(model => model.States_Y_Point, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
 </div>
+
 }
 
 <div>

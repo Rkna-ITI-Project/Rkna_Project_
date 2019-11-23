@@ -4,15 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-<h2>Create</h2>
+<br />
+<br />
+<h2>Create New Booking Slut</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Customer_Slut_Table</h4> 
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -21,6 +22,7 @@
                 @*@Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control" } })*@
 
                 @Html.TextBoxFor(model => model.Cus_Slut_Date, new { @class = "datepicker" })
+                <br />
                 @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -29,6 +31,7 @@
             <div class="col-md-10">
                 @*@Html.TextBoxFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control" } })*@ 
                 @Html.TextBoxFor(model => model.Cus_Slut_S_Time, new { @name= "time", @class = "timepicker" })
+                <br />
                 @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,6 +39,7 @@
             @Html.LabelFor(model => model.Cus_Slut_E_Time, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
                 @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,6 +47,7 @@
             @Html.LabelFor(model => model.Cheeck_Code, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cheeck_Code, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
                 @Html.ValidationMessageFor(model => model.Cheeck_Code, "", new { @class = "text-danger" })
             </div>
         </div>

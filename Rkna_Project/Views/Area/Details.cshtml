@@ -6,11 +6,12 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Details</h2>
+<br />
+<br />
+<h2>Details Of @Html.DisplayFor(model => model.Area_Name) in @Html.DisplayFor(model => model.States_Table.States_Name) State </h2>
 
 <div> 
-    <h4>Area_Table</h4>
+    
     <table class="table  "> 
         <tr>
             <td class="control-label ">

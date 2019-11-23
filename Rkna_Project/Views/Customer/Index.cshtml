@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<h2>Index Of All Customer Booking Sluts </h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,58 +15,55 @@
 <table class="table  w-auto small">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Cus_Slut_Date)
-        </th> 
-        <th> 
-            @Html.DisplayNameFor(model => model.Cus_Slut_S_Time)
+            @Html.DisplayName("Customer Slut Date")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cus_Slut_E_Time)
+            @Html.DisplayName("Slut Start Time")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cheeck_Code)
+            @Html.DisplayName("Slut End Time")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            @Html.DisplayName("Cheeck Code")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Car_Specifications_Table.Car_Owner_ID)
+            @Html.DisplayName("User Email")
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Slut_Table.Name)
+            @Html.DisplayName("Slut Name")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cus_Slut_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cus_Slut_S_Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cus_Slut_E_Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cheeck_Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Car_Specifications_Table.Car_Owner_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Slut_Table.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Customer_Slut_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Customer_Slut_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Customer_Slut_ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cus_Slut_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cus_Slut_S_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cus_Slut_E_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cheeck_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Slut_Table.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Customer_Slut_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Customer_Slut_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Customer_Slut_ID })
+            </td>
+        </tr>
+    }
 
 </table>

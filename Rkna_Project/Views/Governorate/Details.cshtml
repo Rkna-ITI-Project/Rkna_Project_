@@ -4,19 +4,21 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<br />
 
-<h2>Details</h2>
+<h2> @Html.DisplayFor(model => model.Gov_Name) Governorate Details</h2>
 
 <div>
-    <h4>Governorate</h4>
+    
     <table class="table">
         <tr>
             <td>
                 @Html.Label("Governorate Name")
             </td>
-            <td> 
+            <td>
                 @Html.Label("Governorate Description ")
-            </td> 
+            </td>
         </tr>
         <tr>
             <td>
@@ -54,6 +56,8 @@
         @Html.ValidationMessageFor(model => model.Gov_Y_Point, "", new { @class = "text-danger" })
     </div>
 </div>
+<br />
+<br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Gov_ID }) |
     @Html.ActionLink("Back to List", "Index")

@@ -5,8 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+<br />
 
-<h2>Create</h2>
+<br />
+
+<h2>Create New State</h2>
 
 
 @using (Html.BeginForm())
@@ -14,10 +17,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>State</h4>
+
         <hr />
         <div class="form-group">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-10">
@@ -29,7 +32,8 @@
                             }
                         }
                     </select>
-                    @Html.ValidationMessageFor(model => model.Gov_ID, "", new { @class = "text-danger" })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Governorate_Table.Gov_Name, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -37,6 +41,8 @@
                 @Html.LabelFor(model => model.States_Name, "State Name", htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.States_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    <br />
+
                     @Html.ValidationMessageFor(model => model.States_Name, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -45,6 +51,8 @@
                 @Html.LabelFor(model => model.States_Desc, "State Description", htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.States_Desc, new { htmlAttributes = new { @class = "form-control" } })
+                    <br />
+
                     @Html.ValidationMessageFor(model => model.States_Desc, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -74,14 +82,25 @@
             </div>
         </div>
     </div>
-}
-<div> 
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWTHLiTeCJ8YVPGdMkZEPXzo_6FeuRwHE&sensor=true"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/Site.js")"></script>
+    <br />
+    <br />
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+   
+   
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWTHLiTeCJ8YVPGdMkZEPXzo_6FeuRwHE&sensor=true"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Site.js")"></script>
+    }
 }

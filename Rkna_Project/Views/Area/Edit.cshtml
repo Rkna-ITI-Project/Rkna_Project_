@@ -4,8 +4,9 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Edit</h2>
+<br />
+<br />
+<h2>Edit @Html.DisplayFor(model => model.Area_Name) Area </h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +14,7 @@
     @Html.AntiForgeryToken()
       
 <div class="form-horizontal">
-    <h4>Area_Table</h4>
+   
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -22,6 +23,7 @@
             <select class="form-control" id="Gov" name="Gov" required="required">
                 <option value="-1">Choose Governorate </option>
             </select>
+            <br />
             @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -43,6 +45,7 @@
                     }
                 }
             </select>
+            <br />
             @Html.ValidationMessageFor(model => model.States_ID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -51,6 +54,7 @@
         @Html.LabelFor(model => model.Area_Name, "Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            <br />
             @Html.ValidationMessageFor(model => model.Area_Name, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -59,6 +63,7 @@
         @Html.LabelFor(model => model.Area_Desc, "Area Description", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_Desc, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            <br />
             @Html.ValidationMessageFor(model => model.Area_Desc, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -67,6 +72,7 @@
         @Html.LabelFor(model => model.Area_Manger, "Area_Manger", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.DropDownList("Area_Manger", null, htmlAttributes: new { @class = "form-control", required = "required" })
+            <br />
             @Html.ValidationMessageFor(model => model.Area_Manger, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -75,6 +81,7 @@
         @Html.LabelFor(model => model.Area_Hour_Rate, "Area Hour Rate", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_Hour_Rate, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            <br />
             @Html.ValidationMessageFor(model => model.Area_Hour_Rate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -83,6 +90,7 @@
         @Html.LabelFor(model => model.Area_Start_Time, "Area Start Time", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_Start_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            <br />
             @Html.ValidationMessageFor(model => model.Area_Start_Time, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -91,6 +99,7 @@
         @Html.LabelFor(model => model.Area_End_Time, "Area End Time", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_End_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            <br />
             @Html.ValidationMessageFor(model => model.Area_End_Time, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -107,6 +116,7 @@
         @Html.LabelFor(model => model.Area_X_Point, "Longitude", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Area_X_Point, new { htmlAttributes = new { id = "Longitude", @class = "form-control" } })
+           <br />
             @Html.ValidationMessageFor(model => model.Area_X_Point, "", new { @class = "text-danger" })
         </div>
     </div>

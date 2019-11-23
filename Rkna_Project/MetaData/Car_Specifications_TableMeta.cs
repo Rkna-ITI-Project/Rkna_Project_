@@ -17,7 +17,7 @@ namespace Rkna_Project.MetaData
 
 
         public int Car_Spe_ID { get; set; }
-        [Required(ErrorMessage = "License Id is Required")]
+        [Required(ErrorMessage = "Car Owner Email is Required")]
         //[MinLength(14, ErrorMessage = "It's Very Small")]
         //[MaxLength(14, ErrorMessage = "It's Very Long")]
         //[DataType(DataType.CreditCard)]
@@ -26,8 +26,8 @@ namespace Rkna_Project.MetaData
         [DataType(DataType.Text, ErrorMessage = "Please Enter Text.")]
         public string Care_Model { get; set; }
         [Required(ErrorMessage = "Car License Id is Required")]
-        [MinLength(7, ErrorMessage = "It's Very Small")]
-        [MaxLength(7, ErrorMessage = "It's Very Long")]
+        [MinLength(7, ErrorMessage = "It's Very Small It Must Be 7 Number")]
+        [MaxLength(7, ErrorMessage = "It's Very Long It Must Be 7  Number")]
         //[DataType(DataType.)]
         public string Car_plate_Number { get; set; }
         public  AspNetUser AspNetUser { get; set; }
