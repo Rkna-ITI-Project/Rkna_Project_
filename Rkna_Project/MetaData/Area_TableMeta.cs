@@ -40,16 +40,14 @@ namespace Rkna_Project.MetaData
         [DataType(DataType.Text, ErrorMessage = "Please Enter Text")]
         public string Area_Manger { get; set; }
         [Required(ErrorMessage = "Hour Cost is required")]
-        [DataType(DataType.Currency)]
-        [MinLength(2, ErrorMessage = "It's Very little Money")]
-        [MaxLength(3, ErrorMessage = "It's So Much Money")]
+        [RegularExpression(@"^[0-9]+(\.[0-9]{1,2})$", ErrorMessage = "Valid Decimal number with maximum 2 decimal places.")]
         public decimal Area_Hour_Rate { get; set; }
         [Required(ErrorMessage = "Start Time is required")]
-        [DataType(DataType.Time)]
+        [DataType(DataType.Time, ErrorMessage = "Enter Areal time")]
         [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
         public System.TimeSpan Area_Start_Time { get; set; }
         [Required(ErrorMessage = "End Time is required")]
-        [DataType(DataType.Time)]
+        [DataType(DataType.Time,ErrorMessage ="Enter Areal time")]
         [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
         public System.TimeSpan Area_End_Time { get; set; }
 
