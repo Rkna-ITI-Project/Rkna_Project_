@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Rkna_Project.Models;
  
 namespace Rkna_Project.Controllers
@@ -42,12 +44,36 @@ namespace Rkna_Project.Controllers
         [Authorize(Roles = "user,admin,manger")]
         public ActionResult Create()
         {
-            ViewBag.Customer_ID = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.Car_Spe_ID = new SelectList(db.Car_Specifications_Table, "Car_Spe_ID", "Car_Owner_ID");
-            ViewBag.Slut_ID = new SelectList(db.Slut_Table, "Slut_ID", "Name");
+            /// cheeck with email and get customer cars and all data
+            /// 
+           ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            
+            ViewBag.Customer = user.Email;
+            ViewBag.Car_Spe_ID = db.Car_Specifications_Table.ToList();
+            ViewBag.Slut_ID = db.Slut_Table.ToList();
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             return View();
         }
 
+        public ActionResult getArea()
+        {
+            return Json(db.Area_Table.Select(x => new
+            {
+                States_ID = x.States_ID,
+                Area_Name = x.Area_Name,
+                Area_ID = x.Area_ID
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult getSluts()
+        {
+            return Json(db.Slut_Table.Select(x => new
+            {
+                Name = x.Name,
+                Slut_ID = x.Slut_ID,
+                Slut_Level = x.Slut_Level,
+                Slut_State = x.Slut_State
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
         //public ActionResult get()
         //{
         //}

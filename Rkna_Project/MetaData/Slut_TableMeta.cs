@@ -27,7 +27,8 @@ namespace Rkna_Project.MetaData
         public string Name { get; set; }
         [MaxLength(2,ErrorMessage ="It's Very Long")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid  Number")]
-        public Nullable<int> Slut_Level { get; set; }
+        [StringLength(1)]
+        public string Slut_Level { get; set; }
         [ScaffoldColumn(false)]
         public string Slut_X_Point { get; set; }
         [ScaffoldColumn(false)]

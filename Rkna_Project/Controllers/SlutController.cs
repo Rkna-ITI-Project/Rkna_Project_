@@ -42,7 +42,7 @@ namespace Rkna_Project.Controllers
         [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
         {
-            ViewBag.Area_ID = new SelectList(db.Area_Table, "Area_ID", "Area_Name");
+            ViewBag.Area_Table = db.Area_Table.ToList();
             return View();
         }
 
@@ -78,7 +78,7 @@ namespace Rkna_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Area_ID = new SelectList(db.Area_Table, "Area_ID", "Area_Name", slut_Table.Area_ID);
+            ViewBag.Area_Table = db.Area_Table.ToList();
             return View(slut_Table);
         }
 

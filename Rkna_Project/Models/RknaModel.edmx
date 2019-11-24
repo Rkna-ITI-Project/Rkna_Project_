@@ -136,7 +136,7 @@
           <Property Name="Slut_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Area_ID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Slut_Level" Type="int" />
+          <Property Name="Slut_Level" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="Slut_X_Point" Type="varchar" MaxLength="70" />
           <Property Name="Slut_Y_Point" Type="varchar" MaxLength="70" />
           <Property Name="Slut_State" Type="bit" Nullable="false" />
@@ -585,7 +585,7 @@
           <Property Name="Slut_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Area_ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Slut_Level" Type="Int32" />
+          <Property Name="Slut_Level" Type="String" MaxLength="5" Nullable="false" Unicode="false" FixedLength="false" />
           <Property Name="Slut_X_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="Slut_Y_Point" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="Slut_State" Type="Boolean" Nullable="false" />

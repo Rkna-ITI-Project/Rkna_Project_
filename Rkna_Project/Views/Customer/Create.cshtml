@@ -12,51 +12,95 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @*@Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control" } })*@
+<div class="form-horizontal">
 
-                @Html.TextBoxFor(model => model.Cus_Slut_Date, new { @class = "datepicker" })
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+                @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
                 <br />
-                @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_S_Time, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @*@Html.TextBoxFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control" } })*@ 
-                @Html.TextBoxFor(model => model.Cus_Slut_S_Time, new { @name= "time", @class = "timepicker" })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_E_Time, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cheeck_Code, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cheeck_Code, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cheeck_Code, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+           
+
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="Gov" name="Gov" required="required">
+                <option value="-1">Choose Governorate </option>
+
+                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
+                    {
+
+                        <option value="@item.Gov_ID">@item.Gov_Name</option>
+                    }
+                }
+            </select>
+            <br />
+            @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="States" name="States" required="required"></select>
+            <br />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
+            <br />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cus_Slut_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control" } })*@
+
+            @Html.TextBoxFor(model => model.Cus_Slut_Date, new { @class = "datepicker" })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cus_Slut_S_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.EditorFor(model => model.Cus_Slut_S_Time, new { @name = "time", @class = "timepicker" })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cus_Slut_E_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cheeck_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cheeck_Code, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cheeck_Code, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -74,9 +118,48 @@
                 changeYear: true,
                 yearRange: "+0:+60"
             });
-           
+
 
         });
+  //// State
+        $(document).ready(function () {
+            $("#Gov").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Area/getCity",
+                    data: "{}",
+                    success: function (data) {
+                        var s = '<option value="-1">Please Select</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Gov_ID == $("#Gov").val()) {
+                                s += '<option value="' + data[i].States_ID + '">' + data[i].States_Name + '</option>';
+                            }
+                        }
+                        $("#States").html(s);
+                    }
+                });
+            });
+
+            $("#States").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Customer/getArea",
+                    data: "{}",
+                    success: function (data) {
+                        var s = '<option value="-1">Please Select</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].States_ID == $("#States").val()) {
+                                s += '<option value="' + data[i].Area_ID + '">' + data[i].Area_Name + '</option>';
+                            }
+                        }
+                        $("#Area_ID").html(s);
+                    }
+                });
+            });
+
+
+        });
+
     </script>
 }
 
