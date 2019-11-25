@@ -21,10 +21,10 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Customer_ID, "User Acount", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-                @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
-           
+            @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+
 
         </div>
     </div>
@@ -64,7 +64,7 @@
         @Html.LabelFor(model => model.Cus_Slut_Date, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-             <br />
+            <br />
             @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -84,28 +84,43 @@
             @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.Label("Car Model ", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="Car_Spe_ID" name="Car_Spe_ID" required="required">
+                <option value="-1">Choose Car Model </option>
 
-    <div  class="border-dark" id="PanalSlut" >
-      @*this is for showing sluts in the choosen area*@
+                @{ foreach (var item in ViewBag.Car_Specifications as List<Rkna_Project.Models.Car_Specifications_Table>)
+                    {
 
+                        <option value="@item.Car_Spe_ID">@item.Care_Model</option>
+                    }
+                }
+            </select>
+            <br />
+            @Html.ValidationMessage("Car Model is Required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.Label("", htmlAttributes: new { id = "SelectedSlut", @class = "control-label col-md-2" })
+            <br />
+            @Html.ValidationMessage("Required Select Aslut", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="border-dark container col-md-10" id="PanalSlut">
+        @*this is for showing sluts in the choosen area*@
 
-       
 
     </div>
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.Cheeck_Code, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Cheeck_Code, new { htmlAttributes = new { @class = "form-control" } })
-            <br />
-            @Html.ValidationMessageFor(model => model.Cheeck_Code, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
+
     <br />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-outline-primary" />
             @Html.ActionLink("Back to List", "Index")
-           
+
 
         </div>
     </div>
@@ -170,30 +185,50 @@
                     url: "/Customer/getSluts",
                     data: "{}",
                     success: function (data) {
-                        var s = ' ';
+                        var s = '';
+
                         for (var i = 0; i < data.length; i++) {
                             if (data[i].Area_ID == $("#Area_ID").val()) {
-                                if (data[i].Slut_State == true) {
-                                    s += '<input type="button" id="data[i].Slut_ID" name="' + data[i].Name + '/Level' + data[i].Slut_Level + '" onclick="function ()"  class="col-md-1,btn btn-outline-dark ,slutclick"  />';
+                                if (data[i].Slut_State == false) {
+
+                                    s = '<input type="button" id="Slut' + data[i].Slut_ID + ' "name="' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + '" class=" col-md-2 ,btn btn-outline-dark ,slutclick"  />';
+
+                                 $("#PanalSlut").append(s); 
 
                                 }
-                                else if (data[i].Slut_State == false) {
-                                    s += '<input type="button" id="data[i].Slut_ID" name="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy" disabled class="col-md-1,,btn btn-outline-danger" style  />';
+                                else if (data[i].Slut_State == true) {
+                                    s = '<input type="button" id="Slut' + data[i].Slut_ID + '" name="' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy" disabled class=" col-md-2,btn btn-outline-danger" />';
+                                    $("#PanalSlut").append(s);
                                 }
+
+                                $("Slut"+data[i].Slut_ID).click(function  () {
+                                    $("#SelectedSlut").Name="Slut"+data[i].Slut_ID;
+                                    $("#SelectedSlut").text("ahmed");
+                                   // $("#SelectedSlut").text (data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level );
+
+                                });
                             }
                             else
                             {
                                 s = '<h1>There is No Sluts Add In This Parking Untill Now </h1>';
                             }
+
+                         
                         }
-                        $("#PanalSlut").html(s);
+                        //for (var i = 0; i < data.length; i++) {
+                        //     $("#" + data[i].Slut_ID).click(function  () {
+                        //        $("#SelectedSlut").val(data[i].Slut_ID);
+                                   
+                        //    });
+
+                      //  }
+
                     }
                 });
             });
-            $(".slutclick").onclick(function () {
-                var a = $("data[i].Slut_ID").val();
-                $("#PanalSlut").html(a);
-                });
+
+
+        
 
 
         });

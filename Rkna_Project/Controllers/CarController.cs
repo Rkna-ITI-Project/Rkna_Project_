@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Rkna_Project.Models;
  
 namespace Rkna_Project.Controllers
@@ -18,8 +20,22 @@ namespace Rkna_Project.Controllers
         [Authorize(Roles = "user,admin,manger")]
         public ActionResult Index()
         {
-            var car_Specifications_Table = db.Car_Specifications_Table.Include(c => c.AspNetUser);
-            return View(car_Specifications_Table.ToList());
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            AspNetUserRole Ob = db.AspNetUserRoles.Where(r => r.UserId == user.Id).FirstOrDefault();
+
+
+           List< Car_Specifications_Table> car_Specifications_Table=null;
+            if (Ob.RoleId == "user")
+            {
+                car_Specifications_Table = db.Car_Specifications_Table.Where(c => c.Car_Owner_ID== user.Id).ToList();
+            }
+            else if (Ob.RoleId == "admin" || Ob.RoleId == "manager")
+            {
+                car_Specifications_Table = db.Car_Specifications_Table.ToList();
+            }
+
+            return View(car_Specifications_Table);
         }
 
         // GET: Car_Specifications_Table/Details/5

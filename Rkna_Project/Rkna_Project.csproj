@@ -488,6 +488,7 @@
     <Compile Include="Controllers\E404Controller.cs" />
     <Compile Include="Controllers\GovernorateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Manag_AccountController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\SlutController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
@@ -636,6 +637,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\text.png" />
+    <Content Include="img\WhatsApp Image 2019-11-25 at 1.37.39 PM.jpeg" />
     <Content Include="Models\RknaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RknaModel.edmx</DependentUpon>
@@ -779,6 +781,9 @@
     <Content Include="Views\Map\Index.cshtml" />
     <Content Include="Views\Map\Index2.cshtml" />
     <Content Include="Views\E404\Index.cshtml" />
+    <Content Include="Views\Manag_Account\Delete.cshtml" />
+    <Content Include="Views\Manag_Account\Edit.cshtml" />
+    <Content Include="Views\Manag_Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

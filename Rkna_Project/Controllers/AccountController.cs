@@ -104,7 +104,7 @@ namespace Rkna_Project.Controllers
                         }
                         else
                         {
-                            return RedirectToLocal("~/Customer_Slut_Table/Create");
+                            return RedirectToLocal("~/Home/Index");
 
                         }
                     }

@@ -20,14 +20,31 @@ namespace Rkna_Project.Controllers
         [Authorize(Roles = "user,admin,manger")]
         public ActionResult Index()
         {
-            var customer_Slut_Table = db.Customer_Slut_Table.Include(c => c.AspNetUser).Include(c => c.Car_Specifications_Table).Include(c => c.Slut_Table);
-            return View(customer_Slut_Table.ToList());
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            AspNetUserRole Ob = db.AspNetUserRoles.Where(r => r.UserId == user.Id).FirstOrDefault();
+
+
+            List<Customer_Slut_Table> customer_Slut_Table = null;
+            if (Ob.RoleId == "user")
+            {
+                customer_Slut_Table = db.Customer_Slut_Table.Where(c => c.Customer_ID == user.Id).ToList();
+            }
+            else if (Ob.RoleId == "admin" || Ob.RoleId == "manager")
+            {
+                customer_Slut_Table = db.Customer_Slut_Table.ToList();
+            }
+
+
+          return  View(customer_Slut_Table);
         }
 
         // GET: Customer_Slut_Table/Details/5
         [Authorize(Roles = "user,admin,manger")]
         public ActionResult Details(int? id)
         {
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -50,7 +67,7 @@ namespace Rkna_Project.Controllers
            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             
             ViewBag.Customer = user.Email;
-            ViewBag.Car_Spe_ID = db.Car_Specifications_Table.ToList();
+            ViewBag.Car_Specifications = db.Car_Specifications_Table.Where(c=>c.Car_Owner_ID==user.Id).ToList();
             ViewBag.Slut_ID = db.Slut_Table.ToList();
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             return View();
