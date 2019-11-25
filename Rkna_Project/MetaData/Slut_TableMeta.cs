@@ -16,9 +16,7 @@ namespace Rkna_Project.MetaData
             this.Customer_Slut_Table = new HashSet<Customer_Slut_Table>();
         }
       //E:\ITI Traning\Final Project\Rkna_Project\Rkna_Project\MetaData\Slut_TableMeta.cs
-        [Required]
-        [MinLength(1)]
-        [ScaffoldColumn(false)]
+    
         public int Area_ID { get; set; }
         [Required(ErrorMessage ="Name is Required")]
         [MinLength(5, ErrorMessage = "It's very Short")]
@@ -27,13 +25,12 @@ namespace Rkna_Project.MetaData
         public string Name { get; set; }
         [MaxLength(2,ErrorMessage ="It's Very Long")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid  Number")]
-        [StringLength(1)]
         public string Slut_Level { get; set; }
         [ScaffoldColumn(false)]
         public string Slut_X_Point { get; set; }
         [ScaffoldColumn(false)]
         public string Slut_Y_Point { get; set; }
-        //[Required]
+        [Required]
         public bool Slut_State { get; set; }
 
         public  Area_Table Area_Table { get; set; }

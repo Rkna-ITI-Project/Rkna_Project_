@@ -12,120 +12,121 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-       <hr />
-       
+<div class="form-horizontal">
+    <hr />
+
+    <div class="form-group">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    <select class="form-control" id="Gov" name="Gov" required="required">
-                        <option value="-1">Choose Governorate </option>
-
-                        @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
-                            {
-
-                                <option value="@item.Gov_ID">@item.Gov_Name</option>
-                            }
-                        }
-                    </select>
-                    <br />
-                    @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    <select class="form-control" id="States" name="States" required="required"></select>
-                    <br />
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
-                    <br />
-                </div>
-            </div>
-
-            @*<div class="form-group">
-            @Html.Label("Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
             <div class="col-md-10">
-                <select class="form-control" id="Area_ID" name="Area_ID" required="required">
-                    @{ foreach (var item in ViewBag.Area_Table as List<Rkna_Project.Models.Area_Table>)
+                <select class="form-control" id="Gov" name="Gov" required="required">
+                    <option value="-1">Choose Governorate </option>
+
+                    @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
                         {
 
-                            <option value="@item.Area_ID.ToString()">@item.Area_Name</option>
+                            <option value="@item.Gov_ID">@item.Gov_Name</option>
                         }
                     }
                 </select>
                 <br />
-                @Html.ValidationMessageFor(model => model.Area_ID, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
+        <div class="form-group">
+            @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <select class="form-control" id="States" name="States" required="required"></select>
+                <br />
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
+                <br />
+            </div>
         </div>
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, "Name", htmlAttributes: new { @class = "control-label col-md-6" })
+        @*<div class="form-group">
+                @Html.Label("Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    <br/>
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                    <select class="form-control" id="Area_ID" name="Area_ID" required="required">
+                        @{ foreach (var item in ViewBag.Area_Table as List<Rkna_Project.Models.Area_Table>)
+                            {
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Slut_Level, "Level", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Slut_Level, new { htmlAttributes = new { @class = "form-control" } })
+                                <option value="@item.Area_ID.ToString()">@item.Area_Name</option>
+                            }
+                        }
+                    </select>
                     <br />
+                    @Html.ValidationMessageFor(model => model.Area_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            </div>*@
 
-                    @Html.ValidationMessageFor(model => model.Slut_Level, "", new { @class = "text-danger" })
-                </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, "Name", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Slut_State, "State", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Slut_State)
-                        @Html.ValidationMessageFor(model => model.Slut_State, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Slut_Level, "Level", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Slut_Level, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+
+                @Html.ValidationMessageFor(model => model.Slut_Level, "", new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <div id="map_canvas" style="height: 400px;"></div>
-            </div>
-            <div class="form-group">
-                @Html.Label("Address", htmlAttributes: new { id = "address", @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    @Html.Editor(" ", new { htmlAttributes = new { id = "address", @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Slut_X_Point, "Longitude", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Slut_X_Point, new { htmlAttributes = new { id = "Longitude", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Slut_X_Point, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Slut_Y_Point, "Latitude", htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Slut_Y_Point, new { htmlAttributes = new { id = "Latitude", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Slut_Y_Point, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        <br />
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-outline-primary" />
-                    @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Slut_State, "State", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Slut_State)
+                    @Html.ValidationMessageFor(model => model.Slut_State, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div id="map_canvas" style="height: 400px;"></div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Address", htmlAttributes: new { id = "address", @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.Editor(" ", new { htmlAttributes = new { id = "address", @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Slut_X_Point, "Longitude", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Slut_X_Point, new { htmlAttributes = new { id = "Longitude", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Slut_X_Point, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Slut_Y_Point, "Latitude", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Slut_Y_Point, new { htmlAttributes = new { id = "Latitude", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Slut_Y_Point, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-outline-primary" />
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+</div>
 }
 
 
