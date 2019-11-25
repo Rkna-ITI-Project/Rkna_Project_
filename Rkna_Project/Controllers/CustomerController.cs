@@ -45,7 +45,8 @@ namespace Rkna_Project.Controllers
         public ActionResult Create()
         {
             /// cheeck with email and get customer cars and all data
-            /// 
+            /// WE CALLING USER WHO IS REGISTER FORM BEGIN
+            
            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             
             ViewBag.Customer = user.Email;
@@ -68,15 +69,14 @@ namespace Rkna_Project.Controllers
         {
             return Json(db.Slut_Table.Select(x => new
             {
+                Area_ID = x.Area_ID,
                 Name = x.Name,
                 Slut_ID = x.Slut_ID,
                 Slut_Level = x.Slut_Level,
                 Slut_State = x.Slut_State
             }).ToList(), JsonRequestBehavior.AllowGet);
         }
-        //public ActionResult get()
-        //{
-        //}
+      
         // POST: Customer_Slut_Table/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

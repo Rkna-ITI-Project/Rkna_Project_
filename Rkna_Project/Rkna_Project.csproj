@@ -564,6 +564,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\404.html" />
+    <Content Include="Content\about.html" />
+    <Content Include="Content\base-css.html" />
+    <Content Include="Content\blog_left_sidebar.html" />
+    <Content Include="Content\blog_right_sidebar.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -572,6 +577,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\components.html" />
+    <Content Include="Content\contact.html" />
+    <Content Include="Content\icons.html" />
+    <Content Include="Content\index.html" />
+    <Content Include="Content\list.html" />
+    <Content Include="Content\portfolio-2cols.html" />
+    <Content Include="Content\portfolio-3cols.html" />
+    <Content Include="Content\portfolio-4cols.html" />
+    <Content Include="Content\portfolio-detail.html" />
+    <Content Include="Content\post_left_sidebar.html" />
+    <Content Include="Content\post_right_sidebar.html" />
+    <Content Include="Content\pricingtable.html" />
+    <Content Include="Content\Readme.txt" />
+    <Content Include="Content\scaffolding.html" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

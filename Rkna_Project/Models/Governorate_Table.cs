@@ -11,11 +11,15 @@
 
 namespace Rkna_Project.Models
 {
-
-using System;
+    using Rkna_Project.MetaData;
+    using System;
     using System.Collections.Generic;
-    
-public partial class Governorate_Table
+
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(Governorate_TableMeta))]
+
+    public partial class Governorate_Table
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

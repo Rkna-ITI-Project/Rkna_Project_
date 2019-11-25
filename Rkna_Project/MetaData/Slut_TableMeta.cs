@@ -33,7 +33,7 @@ namespace Rkna_Project.MetaData
         public string Slut_X_Point { get; set; }
         [ScaffoldColumn(false)]
         public string Slut_Y_Point { get; set; }
-        [Required]
+        //[Required]
         public bool Slut_State { get; set; }
 
         public  Area_Table Area_Table { get; set; }

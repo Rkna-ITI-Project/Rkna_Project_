@@ -11,10 +11,12 @@
 
 namespace Rkna_Project.Models
 {
-
-using System;
+    using Rkna_Project.MetaData;
+    using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(Area_TableMeta))]
 public partial class Area_Table
 {
 

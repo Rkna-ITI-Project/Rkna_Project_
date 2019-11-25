@@ -30,11 +30,11 @@ namespace Rkna_Project.MetaData
         public System.DateTime Cus_Slut_Date { get; set; }
         [Required(ErrorMessage = "Start Time is required")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
         public System.TimeSpan Cus_Slut_S_Time { get; set; }
         [Required(ErrorMessage = "End Time is required")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
         public System.TimeSpan Cus_Slut_E_Time { get; set; }
         public string Cheeck_Code { get; set; }
 

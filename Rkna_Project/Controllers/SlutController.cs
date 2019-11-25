@@ -42,6 +42,7 @@ namespace Rkna_Project.Controllers
         [Authorize(Roles = "admin,manger")]
         public ActionResult Create()
         {
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             ViewBag.Area_Table = db.Area_Table.ToList();
             return View();
         }
@@ -78,6 +79,7 @@ namespace Rkna_Project.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             ViewBag.Area_Table = db.Area_Table.ToList();
             return View(slut_Table);
         }

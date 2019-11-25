@@ -11,11 +11,13 @@
 
 namespace Rkna_Project.Models
 {
-
-using System;
+    using Rkna_Project.MetaData;
+    using System;
     using System.Collections.Generic;
-    
-public partial class Company_Table
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(Company_TableMeta1))]
+    public partial class Company_Table
 {
 
     public int Company_Info_ID { get; set; }

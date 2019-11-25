@@ -11,11 +11,13 @@
 
 namespace Rkna_Project.Models
 {
-
-using System;
+    using Rkna_Project.MetaData;
+    using System;
     using System.Collections.Generic;
-    
-public partial class Slut_Table
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(Slut_TableMeta))]
+    public partial class Slut_Table
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
