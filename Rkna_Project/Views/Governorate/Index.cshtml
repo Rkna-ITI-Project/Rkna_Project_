@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index Of All Governorate</h2>
+<br />
+<h2>All Governorate</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Governorate", "Create", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 <table class="table ">
     <tr>
@@ -31,10 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Gov_Desc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Gov_ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Gov_ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Gov_ID })
-            </td>
+               
+                @Html.ActionLink("Details", "Details", new { id = item.Gov_ID }, new { @class = "btn btn-primary btn-rounded btn-large" })
+              </td>
         </tr>
     }
 

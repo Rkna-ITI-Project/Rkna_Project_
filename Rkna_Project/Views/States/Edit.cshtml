@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>Edit @Html.DisplayFor(model => model.States_Name) State </h2>
+<h2>Update @Html.DisplayFor(model => model.States_Name) City </h2>
 
 
 @using (Html.BeginForm())
@@ -46,7 +46,7 @@
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.States_Name, "State Name", htmlAttributes: new { @class = "control-label col-md-6" })
+        @Html.LabelFor(model => model.States_Name, "City Name", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.States_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             <br />
@@ -88,8 +88,8 @@
     <br />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-outline-primary" />
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Update" class="btn btn-outline-info btn-rounded" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
         </div>
     </div>
 </div>

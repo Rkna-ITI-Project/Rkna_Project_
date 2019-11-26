@@ -4,22 +4,22 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br />
 <h2>@Html.DisplayFor(model => model.States_Name) State Details</h2>
 
 <div>
-    <h4>States</h4>
+   
     <table class="table">
         <tr>
-            <td>
-                @Html.Label("State Name")
-            </td>
-            <td>
+            <th>
+                @Html.Label("City Name")
+            </th>
+            <th>
                 @Html.Label("Description")
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.Label(" Governorate Name")
-            </td>
+            </th>
             </tr>
          <tr>  
             <td>
@@ -59,8 +59,9 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.States_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Update", "Edit", new { id = Model.States_ID }, new { @class = "btn btn-primary btn-rounded btn-large" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.States_ID },new { @class = "btn btn-danger btn-rounded btn-large" })
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 @section Scripts {
 

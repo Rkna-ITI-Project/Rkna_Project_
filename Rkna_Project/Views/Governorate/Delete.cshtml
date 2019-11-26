@@ -58,10 +58,10 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-outline-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-outline-danger btn-rounded" /> |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+    </div>
     }
 </div>
 @section Scripts {

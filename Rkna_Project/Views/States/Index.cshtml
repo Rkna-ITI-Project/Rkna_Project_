@@ -4,16 +4,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index Of All States</h2>
-
+<br />
+<h2>All Citys</h2>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create",null,new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.Label("State Name")
+            @Html.Label("City Name")
         </th>
         <th>
             @Html.Label("State Description ")
@@ -27,7 +27,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.States_Name)
+            @Html.DisplayFor(modelItem => item.States_Name, new { @class="row" })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.States_Desc)
@@ -36,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Governorate_Table.Gov_Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.States_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.States_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.States_ID })
+           
+            @Html.ActionLink("Details", "Details", new { id=item.States_ID }, new { @class = "btn btn-primary btn-rounded btn-large" }) 
+           
         </td>
     </tr>
 }

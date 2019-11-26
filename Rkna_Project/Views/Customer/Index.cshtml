@@ -7,15 +7,15 @@
 
 <br />
 <br />
-<h2>Index Of All Customer Booking Sluts </h2>
+<h2>All Your  Booking Sluts </h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Booking", "Create", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 <table class="table  w-auto small">
     <tr>
         <th>
-            @Html.DisplayName("Customer Slut Date")
+            @Html.DisplayName(" Slut Date")
         </th>
         <th>
             @Html.DisplayName("Slut Start Time")
@@ -59,9 +59,9 @@
                 @Html.DisplayFor(modelItem => item.Slut_Table.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Customer_Slut_ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Customer_Slut_ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Customer_Slut_ID })
+                
+                
+                @Html.ActionLink("Delete", "Delete", new { id = item.Customer_Slut_ID },  new { @class = "btn btn-primary btn-rounded btn-large" })
             </td>
         </tr>
     }

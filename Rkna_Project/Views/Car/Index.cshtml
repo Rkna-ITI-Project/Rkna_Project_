@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index Of All Cars</h2>
+<h2> Cars</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New car", "Create", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 <table class="table">
-    <tr> 
+    <tr>
         <th>
-            @Html.Label("Care Model") 
+            @Html.Label("Care Model")
         </th>
         <th>
             @Html.Label("Car plate Number")
@@ -24,23 +24,23 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Care_Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Car_plate_Number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Car_Spe_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Car_Spe_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Car_Spe_ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Care_Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car_plate_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.Car_Spe_ID }, new { @class = "btn btn-primary btn-rounded btn-large" })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<h2>Create  A Company</h2>
+<h2>Create a Company</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -68,11 +68,11 @@
                 @Html.ValidationMessageFor(model => model.Comp_Manger, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-outline-primary" />
-                @Html.ActionLink("Back to List", "Index")
+                <input type="submit" value="Save" class="btn btn-outline-info btn-rounded" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
             </div>
         </div>
     </div>

@@ -88,10 +88,12 @@
         </div>
     </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Area_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+<div>
+    @Html.ActionLink("Update", "Edit", new { id = Model.Area_ID },  new { @class = "btn btn-primary btn-rounded btn-large" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Area_ID },  new { @class = "btn btn-danger btn-rounded btn-large" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+</div>
 @section Scripts {
 
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWTHLiTeCJ8YVPGdMkZEPXzo_6FeuRwHE&sensor=true"></script>

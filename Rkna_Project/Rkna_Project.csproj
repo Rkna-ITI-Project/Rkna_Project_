@@ -636,8 +636,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\400000000000.png" />
+    <Content Include="img\neonbrand-orGJcWVI6js-unsplash.jpg" />
     <Content Include="img\text.png" />
-    <Content Include="img\WhatsApp Image 2019-11-25 at 1.37.39 PM.jpeg" />
     <Content Include="Models\RknaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RknaModel.edmx</DependentUpon>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <br />
 <br />
-<h2>Create New Booking Slut</h2>
+<h2> New Booking Slut</h2>
 
 @using (Html.BeginForm())
 {
@@ -103,23 +103,27 @@
     </div>
     <div class="form-group">
         <div class="col-md-10">
-            @Html.Label("", htmlAttributes: new { id = "SelectedSlut", @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Slut_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
+            @Html.Label("+", "0000", htmlAttributes: new { @id = "SelectedSlut", @class = "control-label col-md-2" })
             <br />
             @Html.ValidationMessage("Required Select Aslut", new { @class = "text-danger" })
         </div>
     </div>
     <br />
-    <div class="border-dark container col-md-10" id="PanalSlut">
+    <br />
+    <br />
+    <div class=" container col-md-10 btn-group" id="PanalSlut">
         @*this is for showing sluts in the choosen area*@
 
 
     </div>
-
+    <br />
+    <br />
     <br />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-outline-primary" />
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Save" class="btn btn-outline-info btn-space btn-rounded "  />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 
 
         </div>
@@ -133,17 +137,6 @@
     @Scripts.Render("~/bundles/jqueryui")
     @Styles.Render("~/Content/cssjqryUi")
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".datepicker").datepicker({
-                dateFormat: "dd/M/yy",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "+0:+60"
-            });
-
-
-        });
-  ////////////////// State
         $(document).ready(function () {
             $("#Gov").change(function () {
                 $.ajax({
@@ -188,25 +181,26 @@
                         var s = '';
 
                         for (var i = 0; i < data.length; i++) {
+                            
                             if (data[i].Area_ID == $("#Area_ID").val()) {
+                                
                                 if (data[i].Slut_State == false) {
 
-                                    s = '<input type="button" id="Slut' + data[i].Slut_ID + ' "name="' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + '" class=" col-md-2 ,btn btn-outline-dark ,slutclick"  />';
+                                    s = '<input type="button" id="slut' + data[i].Slut_ID + ' "name="slut' + data[i].Slut_ID + ' "  value="' + data[i].Name + '/Level' + data[i].Slut_Level + '"  class="btn btn-outline-dark float-left ml-1 mb-1 col-md-2" />';
 
                                  $("#PanalSlut").append(s); 
 
                                 }
                                 else if (data[i].Slut_State == true) {
-                                    s = '<input type="button" id="Slut' + data[i].Slut_ID + '" name="' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy" disabled class=" col-md-2,btn btn-outline-danger" />';
+                                    s = '<input type="button" id="slut' + data[i].Slut_ID + '" name="slut' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy"  class="btn btn-outline-danger float-left ml-1 mb-1 col-md-2  disabled" />';
                                     $("#PanalSlut").append(s);
                                 }
 
-                                $("Slut"+data[i].Slut_ID).click(function  () {
-                                    $("#SelectedSlut").Name="Slut"+data[i].Slut_ID;
-                                    $("#SelectedSlut").text("ahmed");
-                                   // $("#SelectedSlut").text (data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level );
 
+                                $("PanalSlut").on("click", "slut"+ data[i].Slut_ID, function () {
+                                    alert($(this).text());
                                 });
+
                             }
                             else
                             {
@@ -215,24 +209,40 @@
 
                          
                         }
-                        //for (var i = 0; i < data.length; i++) {
-                        //     $("#" + data[i].Slut_ID).click(function  () {
-                        //        $("#SelectedSlut").val(data[i].Slut_ID);
-                                   
-                        //    });
-
-                      //  }
+                        
 
                     }
                 });
             });
 
-
+        function confirmId(caller) {
+                var a = $(caller).attr("id");
+                alert(a);
+                $("#SelectedSlut").attr("#SelectedSlut",a);
+            }
         
+         });
 
+            //$("#Area_ID").change(function () {
+            //    $.ajax({
+            //        type: "GET",
+            //        url: "/Customer/getSluts",
+            //        data: "{}",
+            //        success: function (data) {
+            //            for (var i = 0; i < data.length; i++) {
 
-        });
+            //                $("#slut" + data[i].Slut_ID).click(function () {
+            //                    $("#SelectedSlut").text(data[i].Area_ID);
+            //                }
+            //                );
+            //            }
+            //        }
+                
+            //    });
+            //});
 
+ 
+     
     </script>
 }
 

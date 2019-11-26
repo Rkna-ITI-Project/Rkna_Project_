@@ -6,7 +6,7 @@
 }
 <br />
 
-<h2>Create New Car</h2>
+<h2> New Car</h2>
 
 
 @using (Html.BeginForm()) 
@@ -43,20 +43,18 @@
                 @Html.ValidationMessageFor(model => model.Car_plate_Number, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-outline-primary" />
-                @Html.ActionLink("Back to List", "Index")
-            </div>
+                <input type="submit" value="Save" class="btn btn-outline-info btn-rounded" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
             </div>
         </div>
+        
     </div>
-}
+}<
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

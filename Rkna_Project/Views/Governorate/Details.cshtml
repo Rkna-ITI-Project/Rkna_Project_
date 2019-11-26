@@ -59,8 +59,10 @@
 <br />
 <br />
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Gov_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Update", "Edit", new { id = Model.Gov_ID }, new { @class = "btn btn-primary btn-rounded btn-large" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Gov_ID }, new { @class = "btn btn-danger btn-rounded btn-large" })
+    
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 @section Scripts {
 

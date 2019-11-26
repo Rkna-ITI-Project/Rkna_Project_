@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Change User Permision</h2>
 
 <table class="table">
     <tr>
@@ -35,8 +35,9 @@
             @Html.DisplayFor(modelItem => item.RoleId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            
+            @Html.ActionLink("Update", "Edit", new { id = item.UserId }, new { @class = "btn btn-primary btn-rounded btn-large" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserId }, new { @class = "btn btn-danger btn-rounded btn-large" })
         </td>
     </tr>
     }

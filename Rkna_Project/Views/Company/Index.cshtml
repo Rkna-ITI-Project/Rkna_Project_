@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index Of Company</h2>
+<h2> Company Information</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 <table class="table  w-auto small">
     <tr>
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.Comp_Manger)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Company_Info_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Company_Info_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Company_Info_ID })
+            
+            @Html.ActionLink("Details", "Details", new { id=item.Company_Info_ID },  new { @class = "btn btn-primary btn-rounded btn-large" })
+            
         </td>
     </tr>
 }

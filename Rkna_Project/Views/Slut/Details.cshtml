@@ -11,18 +11,18 @@
     
     <table class="table">
         <tr>
-            <td>
+            <th>
                 @Html.Label("Name")
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.Label("Level")
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.Label("State")
-            </td>  
-            <td>
+            </th>  
+            <th>
                 @Html.Label("Area Name")
-            </td>
+            </th>
 
         </tr>
         <tr>
@@ -67,10 +67,11 @@
             @Html.ValidationMessageFor(model => model.Slut_Y_Point, "", new { @class = "text-danger" })
         </div>
     </div>
- <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Slut_ID }) |
-@Html.ActionLink("Back to List", "Index")
-</div>}
+    <div>
+        @Html.ActionLink("Update", "Edit", new { id = Model.Slut_ID }, new { @class = "btn btn-primary btn-rounded btn-large" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Slut_ID },  new { @class = "btn btn-danger btn-rounded btn-large" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+    </div>}
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -4,8 +4,8 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Are you sure you want to delete  @Html.DisplayFor(model => model.States_Name) State?</h2>
+<br />
+<h2>Are you sure you want to delete  @Html.DisplayFor(model => model.States_Name) City?</h2>
 
 
 <div>
@@ -13,7 +13,7 @@
     <table class="table">
         <tr>
             <td>
-                @Html.Label("State Name")
+                @Html.Label("City Name")
             </td>
             <td>
                 @Html.Label("Description")
@@ -63,8 +63,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-outline-danger" /> 
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-outline-danger btn-rounded" /> 
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
         </div>
     }
 </div>

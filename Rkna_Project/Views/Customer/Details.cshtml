@@ -63,7 +63,9 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Customer_Slut_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+<div>
+    @Html.ActionLink("Update", "Edit", new { id = Model.Customer_Slut_ID }, new { @class = "btn btn-primary btn-rounded btn-large" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Customer_Slut_ID }, new { @class = "btn btn-danger btn-rounded btn-large" })
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-primary btn-rounded btn-large" })
+</div>

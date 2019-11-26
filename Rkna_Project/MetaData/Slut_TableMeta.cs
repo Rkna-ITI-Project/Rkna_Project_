@@ -22,6 +22,7 @@ namespace Rkna_Project.MetaData
         [MinLength(5, ErrorMessage = "It's very Short")]
         [MaxLength(50,ErrorMessage = "It's very Long")]
         [DataType(DataType.Text)]
+        
         public string Name { get; set; }
         [MaxLength(2,ErrorMessage ="It's Very Long")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid  Number")]
