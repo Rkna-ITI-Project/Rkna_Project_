@@ -6,129 +6,130 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <br />
 <br />
-<h2> New Booking Slut</h2>
+<h2> New Booking Slot</h2>
+<img src="~/img/parking-512.png" class="offset-7 col-5" style="width:200px;height:200px;margin-top: -200px;margin-bottom: -50px;}" />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+    <div class="form-horizontal">
 
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Customer_ID, "User Acount", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
-            <br />
-            @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customer_ID, "User Acount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+
+
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-10">
-            <select class="form-control" id="Gov" name="Gov" required="required">
-                <option value="-1">Choose Governorate </option>
+        <div class="form-group">
+            @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <select class="form-control" id="Gov" name="Gov" required="required">
+                    <option value="-1">Choose Governorate </option>
 
-                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
-                    {
+                    @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
+                        {
 
-                        <option value="@item.Gov_ID">@item.Gov_Name</option>
+                            <option value="@item.Gov_ID">@item.Gov_Name</option>
+                        }
                     }
-                }
-            </select>
-            <br />
-            @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
+                </select>
+                <br />
+                @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("State Name", htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-10">
-            <select class="form-control" id="States" name="States" required="required"></select>
-            <br />
+        <div class="form-group">
+            @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <select class="form-control" id="States" name="States" required="required"></select>
+                <br />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Area Name", htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-10">
-            <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
-            <br />
+        <div class="form-group">
+            @Html.Label("Garage", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
+                <br />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Cus_Slut_Date, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-            <br />
-            @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cus_Slut_Date, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Cus_Slut_S_Time, "Start Time ", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-            <br />
-            @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cus_Slut_S_Time, "Start Time ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Cus_Slut_E_Time, "End Time", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-            <br />
-            @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cus_Slut_E_Time, "End Time", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Car Model ", htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-10">
-            <select class="form-control" id="Car_Spe_ID" name="Car_Spe_ID" required="required">
-                <option value="-1">Choose Car Model </option>
+        <div class="form-group">
+            @Html.Label("Car Model ", htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-10">
+                <select class="form-control" id="Car_Spe_ID" name="Car_Spe_ID" required="required">
+                    <option value="-1">Choose Car Model </option>
 
-                @{ foreach (var item in ViewBag.Car_Specifications as List<Rkna_Project.Models.Car_Specifications_Table>)
-                    {
+                    @{ foreach (var item in ViewBag.Car_Specifications as List<Rkna_Project.Models.Car_Specifications_Table>)
+                        {
 
-                        <option value="@item.Car_Spe_ID">@item.Care_Model</option>
+                            <option value="@item.Car_Spe_ID">@item.Care_Model</option>
+                        }
                     }
-                }
-            </select>
-            <br />
-            @Html.ValidationMessage("Car Model is Required", new { @class = "text-danger" })
+                </select>
+                <br />
+                @Html.ValidationMessage("Car Model is Required", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Slut_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
-            @Html.Label("+", "0000", htmlAttributes: new { @id = "SelectedSlut", @class = "control-label col-md-2" })
-            <br />
-            @Html.ValidationMessage("Required Select Aslut", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Slut_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
+                @Html.Label("+", "0000", htmlAttributes: new { @id = "SelectedSlut", @class = "control-label col-md-2" })
+                <br />
+                @Html.ValidationMessage("Required Select Aslut", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class=" container col-md-10 btn-group" id="PanalSlut">
-        @*this is for showing sluts in the choosen area*@
-
-
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-outline-info btn-space btn-rounded "  />
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+        <br />
+        <br />
+        <br />
+        <div class=" container col-md-10 btn-group" id="PanalSlut">
+            @*this is for showing sluts in the choosen area*@
 
 
         </div>
+        <br />
+        <br />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-outline-info btn-space btn-rounded " />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+
+
+            </div>
+        </div>
     </div>
-</div>
 }
 
 
@@ -181,14 +182,14 @@
                         var s = '';
 
                         for (var i = 0; i < data.length; i++) {
-                            
+
                             if (data[i].Area_ID == $("#Area_ID").val()) {
-                                
+
                                 if (data[i].Slut_State == false) {
 
                                     s = '<input type="button" id="slut' + data[i].Slut_ID + ' "name="slut' + data[i].Slut_ID + ' "  value="' + data[i].Name + '/Level' + data[i].Slut_Level + '"  class="btn btn-outline-dark float-left ml-1 mb-1 col-md-2" />';
 
-                                 $("#PanalSlut").append(s); 
+                                    $("#PanalSlut").append(s);
 
                                 }
                                 else if (data[i].Slut_State == true) {
@@ -197,52 +198,51 @@
                                 }
 
 
-                                $("PanalSlut").on("click", "slut"+ data[i].Slut_ID, function () {
+                                $("PanalSlut").on("click", "slut" + data[i].Slut_ID, function () {
                                     alert($(this).text());
                                 });
 
                             }
-                            else
-                            {
+                            else {
                                 s = '<h1>There is No Sluts Add In This Parking Untill Now </h1>';
                             }
 
-                         
+
                         }
-                        
+
 
                     }
                 });
             });
 
-        function confirmId(caller) {
+            function confirmId(caller) {
                 var a = $(caller).attr("id");
                 alert(a);
-                $("#SelectedSlut").attr("#SelectedSlut",a);
+                $("#SelectedSlut").attr("#SelectedSlut", a);
             }
-        
-         });
 
-            //$("#Area_ID").change(function () {
-            //    $.ajax({
-            //        type: "GET",
-            //        url: "/Customer/getSluts",
-            //        data: "{}",
-            //        success: function (data) {
-            //            for (var i = 0; i < data.length; i++) {
+        });
 
-            //                $("#slut" + data[i].Slut_ID).click(function () {
-            //                    $("#SelectedSlut").text(data[i].Area_ID);
-            //                }
-            //                );
-            //            }
-            //        }
-                
-            //    });
-            //});
+                //$("#Area_ID").change(function () {
+                //    $.ajax({
+                //        type: "GET",
+                //        url: "/Customer/getSluts",
+                //        data: "{}",
+                //        success: function (data) {
+                //            for (var i = 0; i < data.length; i++) {
 
- 
-     
+                //                $("#slut" + data[i].Slut_ID).click(function () {
+                //                    $("#SelectedSlut").text(data[i].Area_ID);
+                //                }
+                //                );
+                //            }
+                //        }
+
+                //    });
+                //});
+
+
+
     </script>
 }
 

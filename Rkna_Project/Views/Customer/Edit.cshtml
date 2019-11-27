@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Update Booking Slut</h2>
+<h2>Update Booking Slot</h2>
 
 
 @using (Html.BeginForm())
@@ -19,7 +19,7 @@
         @Html.HiddenFor(model => model.Customer_Slut_ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Cus_Slut_Date,"Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control" } })
                 <br />
@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_S_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Cus_Slut_S_Time,"Start Time",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control" } })
                 <br />
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_E_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Cus_Slut_E_Time,"End Time", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control" } })
                 <br />
@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cheeck_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Cheeck_Code,"checked", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cheeck_Code, new { htmlAttributes = new { @class = "form-control" } })
                 <br />
