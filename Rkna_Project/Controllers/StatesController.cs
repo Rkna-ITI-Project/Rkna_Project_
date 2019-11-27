@@ -62,7 +62,7 @@ namespace Rkna_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Gov_ID = new SelectList(db.Governorate_Table, "Gov_ID", "Gov_Name", states_Table.Gov_ID);
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             return View(states_Table);
         }
          
@@ -98,7 +98,7 @@ namespace Rkna_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Gov_ID = new SelectList(db.Governorate_Table, "Gov_ID", "Gov_Name", states_Table.Gov_ID);
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             return View(states_Table);
         }
 

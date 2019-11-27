@@ -44,7 +44,6 @@ namespace Rkna_Project.Controllers
         public ActionResult Create()
         {   
             ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             ViewBag.State = db.States_Table.ToList();
             return View();
@@ -73,9 +72,9 @@ namespace Rkna_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email", area_Table.Area_Manger);
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email", area_Table.Area_Manger);
-            ViewBag.States_ID = new SelectList(db.States_Table, "States_ID", "States_Name", area_Table.States_ID);
+            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
+            ViewBag.State = db.States_Table.ToList();
             return View(area_Table);
         }
 
@@ -92,8 +91,7 @@ namespace Rkna_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email", area_Table.Area_Manger);
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email", area_Table.Area_Manger);
+            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             ViewBag.State = db.States_Table.ToList();
             return View(area_Table);
@@ -113,9 +111,9 @@ namespace Rkna_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email", area_Table.Area_Manger);
-            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email", area_Table.Area_Manger);
-            ViewBag.States_ID = new SelectList(db.States_Table, "States_ID", "States_Name", area_Table.States_ID);
+            ViewBag.Area_Manger = new SelectList(db.AspNetUsers, "Id", "Email");
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
+            ViewBag.State = db.States_Table.ToList();
             return View(area_Table);
         }
 

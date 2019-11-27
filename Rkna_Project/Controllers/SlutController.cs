@@ -62,8 +62,8 @@ namespace Rkna_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Area_ID = new SelectList(db.Area_Table, "Area_ID", "Area_Name", slut_Table.Area_ID);
-            return View(slut_Table);
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
+            ViewBag.Area_Table = db.Area_Table.ToList(); return View(slut_Table);
         }
 
         // GET: Slut_Table/Edit/5
@@ -98,7 +98,8 @@ namespace Rkna_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Area_ID = new SelectList(db.Area_Table, "Area_ID", "Area_Name", slut_Table.Area_ID);
+      ViewBag.Governorate_Table = db.Governorate_Table.ToList();
+            ViewBag.Area_Table = db.Area_Table.ToList();
             return View(slut_Table);
         }
 
