@@ -8029,7 +8029,7 @@ h1, h2, h3, h4, h5,
 .ftco-navbar-light {
   background: transparent !important;
   position: absolute;
-  top: 20px;
+  top: 0px;
   left: 0;
   right: 0;
   z-index: 3; }
@@ -8202,12 +8202,14 @@ h1, h2, h3, h4, h5,
   text-transform: uppercase; }
 
 .hero-wrap {
-  width: 100%;
-  height: 850px;
-  position: inherit;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center; }
+    width: 100%;
+    height: 850px;
+    position: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-top: -69px;
+}
   .hero-wrap .overlay {
     position: absolute;
     top: 0;
@@ -8217,12 +8219,12 @@ h1, h2, h3, h4, h5,
     content: '';
     opacity: .4;
     background: #000000;
-    height: 850px; }
+    height: 782px; }
   @media (max-width: 991.98px) {
     .hero-wrap {
       height: 1150px; }
       .hero-wrap .overlay {
-        height: 1150px; } }
+        height: 1082px; } }
   .hero-wrap.hero-wrap-2 {
     height: 700px !important;
     position: relative; }

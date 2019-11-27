@@ -11,17 +11,17 @@ namespace Rkna_Project.MetaData
     {
         public int Customer_Slut_ID { get; set; }
         [Required]
-        [MinLength(14, ErrorMessage = "you Should Enter 14 Number")]
-        [MaxLength(14, ErrorMessage = "you Should Enter 14 Number")]
+     
+      
         [ScaffoldColumn(false)]
-        [DataType(DataType.CreditCard, ErrorMessage = "You Must Enter Numbers")]
+       
         public string Customer_ID { get; set; }
         [Required]
-        [MinLength(1)]
+       
         [ScaffoldColumn(false)]
         public int Slut_ID { get; set; }
         [Required]
-        [MinLength(1)]
+       
         [ScaffoldColumn(false)]
         public int Car_Spe_ID { get; set; }
         [Required(ErrorMessage = "Date is required")]

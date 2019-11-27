@@ -13,59 +13,249 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+<div class="form-horizontal">
 
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Customer_Slut_ID)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Customer_Slut_ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_Date, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer_ID, "User Acount", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_S_Time, "Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cus_Slut_E_Time, "End Time", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cheeck_Code, "checked", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cheeck_Code, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Cheeck_Code, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Update" class="btn btn-outline-info btn-rounded" />
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
-            </div>
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="Gov" name="Gov" required="required">
+                <option value="-1">Choose Governorate </option>
+
+                @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
+                    {
+
+                        <option value="@item.Gov_ID">@item.Gov_Name</option>
+                    }
+                }
+            </select>
+            <br />
+            @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="States" name="States" required="required"></select>
+            <br />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Garage", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
+            <br />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cus_Slut_Date, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cus_Slut_Date, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cus_Slut_Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cus_Slut_S_Time, "Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cus_Slut_S_Time, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cus_Slut_S_Time, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cus_Slut_E_Time, "End Time", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cus_Slut_E_Time, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.Cus_Slut_E_Time, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.Label("Car Model ", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <select class="form-control" id="Car_Spe_ID" name="Car_Spe_ID" required="required">
+                <option value="-1">Choose Car Model </option>
+
+                @{ foreach (var item in ViewBag.Car_Specifications as List<Rkna_Project.Models.Car_Specifications_Table>)
+                    {
+
+                        <option value="@item.Car_Spe_ID">@item.Care_Model</option>
+                    }
+                }
+            </select>
+            <br />
+            @Html.ValidationMessage("Car Model is Required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <select class="form-control" id="slot_ID" name="slot_ID" required="required"></select>
+            <br />
+        </div>
+        @Html.ValidationMessage("Required Select a slot", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.Slut_ID, "Slot Name Is Required", new { @class = "text-danger" })
+    </div>
+</div>
+    <br />
+    <br />
+    <br />
+    <div class=" container col-md-10 btn-group" id="PanalSlut">
+        @*this is for showing sluts in the choosen area*@
+
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-outline-info btn-rounded" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+        </div>
+    </div>
+    
 }
 
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Gov").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Area/getCity",
+                    data: "{}",
+                    success: function (data) {
+                        var s = '<option value="-1">Please Select</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Gov_ID == $("#Gov").val()) {
+                                s += '<option value="' + data[i].States_ID + '">' + data[i].States_Name + '</option>';
+                            }
+                        }
+                        $("#States").html(s);
+                    }
+                });
+            });
+            //------------------------------------
+            $("#States").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Customer/getArea",
+                    data: "{}",
+                    success: function (data) {
+                        var s = '<option value="-1">Please Select</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].States_ID == $("#States").val()) {
+                                s += '<option value="' + data[i].Area_ID + '">' + data[i].Area_Name + '</option>';
+                            }
+                        }
+                        $("#Area_ID").html(s);
+                    }
+                });
+            });
+            //----------------------------getSluts-------
+            $("#Area_ID").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Customer/getSluts",
+                    data: "{}",
+                    success: function (data) {
+                        var s = '';
+
+                        for (var i = 0; i < data.length; i++) {
+
+                            if (data[i].Area_ID == $("#Area_ID").val()) {
+
+                                if (data[i].Slut_State == false) {
+
+                                    s = '<input type="button" id="slut_btn' + data[i].Slut_ID + ' "name="slot_btn' + data[i].Slut_ID + ' "  value="' + data[i].Name + '/Level' + data[i].Slut_Level + '"  class="btn btn-outline-dark float-left ml-1 mb-1 col-md-2" />';
+
+                                    $("#PanalSlut").append(s);
+
+                                }
+                                else if (data[i].Slut_State == true) {
+                                    s = '<input type="button" id="slut_btn' + data[i].Slut_ID + '" name="slot_btn' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy"  class="btn btn-outline-danger float-left ml-1 mb-1 col-md-2  disabled" />';
+                                    $("#PanalSlut").append(s);
+                                }
+
+
+
+                            }
+                            else {
+                                s = '<h1>There is No Slots Add In This Parking Untill Now </h1>';
+                            }
+
+
+                        }
+
+
+                    }
+                });
+            });
+
+            //-----------------------------------
+            $("#Area_ID").change(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Customer/getSluts",
+                    data: "{}",
+                    success: function (data) {
+                        var s = '<option value="-1">Please Select Slot</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Area_ID == $("#Area_ID").val()) {
+
+                                if (data[i].Slut_State == false) {
+                                    s += '<option value="' + data[i].Slut_ID + '">' + data[i].Name + "/level" + data[i].Slut_Level + '</option>';
+                                }
+                                else if (data[i].Slut_State == true) {
+                                    s += '<option  value=" '  + data[i].Slut_ID + '" disabled="disabled">' + data[i].Name + "/level" + data[i].Slut_Level + "Busy" + '</option>';
+                                }
+
+                            }
+                            else {
+                                s = '<h1>There is No Slots Add In This Parking Untill Now </h1>';
+                            }
+                        }
+                        $("#slot_ID").html(s);
+                    }
+                });
+            });
+
+            $("#slot_ID").change(function () {
+                $("#slut_btn" + this.id).addClass("btn btn-outline-danger float-left ml-1 mb-1 col-md-2  disabled");
+            });
+
+
+
+        });
+
+
+
+
+
+    </script>
 }

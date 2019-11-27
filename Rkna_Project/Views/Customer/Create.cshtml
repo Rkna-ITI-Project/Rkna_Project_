@@ -43,7 +43,7 @@
                     @{ foreach (var item in ViewBag.Governorate_Table as List<Rkna_Project.Models.Governorate_Table>)
                         {
 
-                            <option value="@item.Gov_ID">@item.Gov_Name</option>
+                            <option value="@item.Gov_ID.ToString()">@item.Gov_Name</option>
                         }
                     }
                 </select>
@@ -98,7 +98,7 @@
                     @{ foreach (var item in ViewBag.Car_Specifications as List<Rkna_Project.Models.Car_Specifications_Table>)
                         {
 
-                            <option value="@item.Car_Spe_ID">@item.Care_Model</option>
+                            <option value="@item.Car_Spe_ID.ToString()">@item.Care_Model</option>
                         }
                     }
                 </select>
@@ -108,11 +108,12 @@
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Slut_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
-                @Html.Label("+", "0000", htmlAttributes: new { @id = "SelectedSlut", @class = "control-label col-md-2" })
+                <select class="form-control" id="Slut_ID" name="Slut_ID" required="required"></select>
                 <br />
-                @Html.ValidationMessage("Required Select Aslut", new { @class = "text-danger" })
             </div>
+            @Html.ValidationMessage("Required Select a slot", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Slut_ID, "Slot Name Is Required", new { @class = "text-danger" })
+        </div>
         </div>
         <br />
         <br />
@@ -133,7 +134,7 @@
 
             </div>
         </div>
-    </div>
+   
     
    
 }
@@ -185,67 +186,75 @@
                     url: "/Customer/getSluts",
                     data: "{}",
                     success: function (data) {
-                        var s = '';
-
+                        var s = ' ';
+                        var s1 = '<option value="-1">Please Select Slot</option>';
                         for (var i = 0; i < data.length; i++) {
 
                             if (data[i].Area_ID == $("#Area_ID").val()) {
 
                                 if (data[i].Slut_State == false) {
 
-                                    s = '<input type="button" id="slut' + data[i].Slut_ID + ' "name="slut' + data[i].Slut_ID + ' "  value="' + data[i].Name + '/Level' + data[i].Slut_Level + '"  class="btn btn-outline-dark float-left ml-1 mb-1 col-md-2" />';
-
-                                    $("#PanalSlut").append(s);
+                                    s += '<input type="button" id="slot _but' + data[i].Slut_ID + ' "name="slot _but' + data[i].Slut_ID + ' "  value="' + data[i].Name + '/Level' + data[i].Slut_Level + '"  class="btn btn-outline-dark float-left ml-1 mb-1 col-md-2" />';
+                                    s1 += '<option value=" ' + data[i].Slut_ID + '">' + data[i].Name + "/level" + data[i].Slut_Level + '</option>';
 
                                 }
                                 else if (data[i].Slut_State == true) {
-                                    s = '<input type="button" id="slut' + data[i].Slut_ID + '" name="slut' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy"  class="btn btn-outline-danger float-left ml-1 mb-1 col-md-2  disabled" />';
-                                    $("#PanalSlut").append(s);
+                                    s += '<input type="button" id="slot _but' + data[i].Slut_ID + '" name="slot _but' + data[i].Slut_ID + ' " value="' + data[i].Name + '/Level' + data[i].Slut_Level + 'Busy"  class="btn btn-outline-danger float-left ml-1 mb-1 col-md-2  disabled" />';
+                                    s1 += '<option  value="' + data[i].Slut_ID + '" disabled="disabled">' + data[i].Name + "/level" + data[i].Slut_Level + "Busy" + '</option>';
+
                                 }
 
-
-                                $("PanalSlut").on("click", "slut" + data[i].Slut_ID, function () {
-                                    alert($(this).text());
-                                });
-
                             }
-                            else {
-                                s = '<h1>There is No Sluts Add In This Parking Untill Now </h1>';
-                            }
+                            //else {
+                            //    s = '<h1>There is No Slots Add In This Parking Untill Now </h1>';
+                            //    s1 = '<option>There is No Slots Add In This Parking Untill Now </option>';
+                            //}
 
 
-                        }
-
-
+                        } $("#Slut_ID").html(s1);
+                        $("#PanalSlut").html(s);
                     }
+               
+                    
                 });
             });
 
-            function confirmId(caller) {
-                var a = $(caller).attr("id");
-                alert(a);
-                $("#SelectedSlut").attr("#SelectedSlut", a);
-            }
+            //-----------------------------------
+            //$("#Area_ID").change(function () {
+            //    $.ajax({
+            //        type: "GET",
+            //        url: "/Customer/getSluts",
+            //        data: "{}",
+            //        success: function (data) {
+            //            var s = '<option value="-1">Please Select Slot</option>';
+            //            for (var i = 0; i < data.length; i++) {
+            //                if (data[i].Area_ID == $("#Area_ID").val()) {
+
+            //                    if (data[i].Slut_State == false) {
+            //                        s += '<option value=" ' + data[i].Slut_ID + '">' + data[i].Name + "/level" + data[i].Slut_Level + '</option>';
+            //                    }
+            //                    else if (data[i].Slut_State == true) {
+            //                        s += '<option  value="' + data[i].Slut_ID + '" disabled="disabled">' + data[i].Name + "/level" + data[i].Slut_Level + "Busy" + '</option>';
+            //                    }
+
+            //                }
+            //                else {
+            //                    s = '<option>There is No Slots Add In This Parking Untill Now </option>';
+            //                }
+            //            }
+            //            $("#slot_ID").html(s);
+            //        }
+            //    });
+            //});
+
+
+            $("#slot_ID").change(function () {
+                $("#slut_btn" + this.id).addClass("btn btn-outline-danger float-left ml-1 mb-1 col-md-2  disabled");
+            });
 
         });
 
-                            //$("#Area_ID").change(function () {
-                            //    $.ajax({
-                            //        type: "GET",
-                            //        url: "/Customer/getSluts",
-                            //        data: "{}",
-                            //        success: function (data) {
-                            //            for (var i = 0; i < data.length; i++) {
-
-                            //                $("#slut" + data[i].Slut_ID).click(function () {
-                            //                    $("#SelectedSlut").text(data[i].Area_ID);
-                            //                }
-                            //                );
-                            //            }
-                            //        }
-
-                            //    });
-                            //});
+                         
 
 
 

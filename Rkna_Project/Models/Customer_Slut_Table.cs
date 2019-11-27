@@ -36,7 +36,7 @@ namespace Rkna_Project.Models
 
     public string Cheeck_Code { get; set; }
 
-    public Nullable<bool> Deleted { get; set; }
+    public bool Deleted { get; set; }
 
 
 

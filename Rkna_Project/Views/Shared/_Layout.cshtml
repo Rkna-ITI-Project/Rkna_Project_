@@ -39,34 +39,50 @@
 
                     @if (@Html.GetCurrentUserRule() == "admin")
                     {
-                        <li class="nav-item"><a href="/Manag_Account/Index" class="nav-link">Account</a></li>
+                        <li class="dropdown">
+                            <ul class=" dropdown-toggle  ml-auto" style="margin-top:15px;" id="ddl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Management
+                            </ul>
+                            <div class="dropdown-menu" aria-labelledby="ddl">
+                                <a href="~/Manag_Account/Index" class="dropdown-item">Account</a>
+                                <a href="~/Company/Index" class="dropdown-item">Company</a>
+                                <a href="~/Reportes/Area/AreaReport.aspx" class="dropdown-item">Garage Report</a>
+                                <a href="~/Reportes/Customer/CustomerReport.aspx" class="dropdown-item">Customer Report</a>
 
+                            </div>
+                        </li>
                     }
                     @if (@Html.GetCurrentUserRule() == "manger" || @Html.GetCurrentUserRule() == "admin")
                     {
-                        <li class="nav-item"><a href="/Company/Index" class="nav-link">Company</a></li>
+
                         <li class="dropdown">
-                            <ul class=" dropdown-toggle  ml-auto"style="margin-top:15px;"  id="ddl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Garage
+                            <ul class=" dropdown-toggle  ml-auto" style="margin-top:15px;" id="ddl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Garage
                             </ul>
                             <div class="dropdown-menu" aria-labelledby="ddl">
-                                <a href="/Governorate/Index" class=" dropdown-item">Gov</a>
-                                <a href="/States/Index" class=" dropdown-item">City</a>
-                                <a href="/Area/Index" class=" dropdown-item">Garage</a>
-                                <a href="/Slut/Index" class=" dropdown-item">Slot</a>
+                                <a href="~/Governorate/Index" class=" dropdown-item">Gov</a>
+                                <a href="~/States/Index" class=" dropdown-item">City</a>
+                                <a href="~/Area/Index" class=" dropdown-item">Garage</a>
+                                <a href="~/Slut/Index" class=" dropdown-item">Slot</a>
                             </div>
                         </li>
-                        
+
 
                     }
-
-                    <li class="nav-item"><a href="/Customer/Index" class="nav-link">Booking</a></li>
-                    <li class="nav-item"><a href="/Car/Index" class="nav-link">Car</a></li>
-                    <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contact</a></li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+                    <li class="dropdown">
+                        <ul class=" dropdown-toggle  ml-auto" style="margin-top:15px;" id="ddl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Booking
+                        </ul>
+                        <div class="dropdown-menu" aria-labelledby="ddl">
+                     <a href="~/Customer/Index" class="dropdown-item">Booking</a>
+                    <a href="~/Car/Index" class="dropdown-item">Car</a>
             </div>
+            </li>
+            <li class="nav-item"><a href="~/Home/About" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="~/Home/Contact" class="nav-link">Contact</a></li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
         </div>
     </nav>
     <div class="hero-wrap" style="background-image: url('/Content/images/rokas-niparavicius-PrECKxBI_P8-unsplash (1).jpg'); background-position: 50% 69px;" data-stellar-background-ratio="0.5">
@@ -152,7 +168,7 @@
                     </div>
                     <div class="row" >
                         <div class="col-md-12 text-center">
-                         <p class="col-md-6 offset-md-3 text-md-center">&copy; @DateTime.Now.Year - ITI .Net Full Stack Development Rakna Team </p>
+                         <p class="col-md-6 offset-md-3 text-md-center" style="color:darkorange ;font-family:'Segoe UI';">&copy; @DateTime.Now.Year - ITI .Net Full Stack Development Rakna Team </p>
                         </div>
                     </div>
                 </div>

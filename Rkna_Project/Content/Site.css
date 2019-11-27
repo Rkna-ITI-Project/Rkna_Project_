@@ -1,45 +1,5 @@
 ﻿
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 43px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 400px;
-} 
-
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-
-
-.navbar-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100% !important;
-    left: 0;
-    z-index: 20;
-}
-
-    /* Flip around the padding for proper display in narrow viewports */
-    .navbar-wrapper > .container {
-        padding-right: 0;
-        padding-left: 0;
-        width: inherit;
-    }
-
 .infoDiv {
     height: 150px;
     width: 300px;
