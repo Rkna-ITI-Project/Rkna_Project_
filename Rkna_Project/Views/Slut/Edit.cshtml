@@ -33,7 +33,7 @@
                     }
                 </select>
                 <br />
-                @Html.ValidationMessage("Governate is Required", new { @class = "text-danger" })
+                @Html.ValidationMessage( "Governate is Required", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
@@ -41,6 +41,7 @@
             <div class="col-md-10">
                 <select class="form-control" id="States" name="States" required="required"></select>
                 <br />
+                @Html.ValidationMessage("City is Required", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
@@ -48,6 +49,7 @@
             <div class="col-md-10">
                 <select class="form-control" id="Area_ID" name="Area_ID" required="required"></select>
                 <br />
+                @Html.ValidationMessage("Garage is Required", new { @class = "text-danger" })
             </div>
         </div>
         @*<div class="form-group">

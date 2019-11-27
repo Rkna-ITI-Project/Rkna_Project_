@@ -5,19 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>All Areas</h2>
+<h2>All Garages</h2>
 
 <p>
-    @Html.ActionLink("New Area", "Create", null, new { @class = "btn btn-primary btn-rounded btn-large" })
+    @Html.ActionLink("New Garage", "Create", null, new { @class = "btn btn-primary btn-rounded btn-large" })
 </p>
 <table class="table ">
     <tr>
         <th class="col-form-label-col-md-3"> 
             @Html.Label("Name") 
         </th>
-        @*<th class="col-form-label-col-md-2">
+        <th class="col-form-label-col-md-2">
             @Html.Label("Description")
-        </th>*@
+        </th>
         <th class="col-form-label-col-md-1">
             @Html.Label("Hour Rate")
         </th>
@@ -31,7 +31,7 @@
             @Html.Label("Manager")
         </th>
         <th class="col-form-label-col-md-2">
-            @Html.Label("States Name")
+            @Html.Label("City")
         </th>
         <th></th>
     </tr>

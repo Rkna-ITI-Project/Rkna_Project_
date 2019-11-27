@@ -1,13 +1,17 @@
 ﻿@model Rkna_Project.Models.Customer_Slut_Table
 @{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Create";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <br />
 <br />
+
 <h2> New Booking Slot</h2>
-<img src="~/img/parking-512.png" class="offset-7 col-5" style="width:200px;height:200px;margin-top: -200px;margin-bottom: -50px;}" />
+<img src="~/img/3.png" class="offset-7 col-5" style="width:400px;height:400px;margin-top: -200px;}" />
+
 
 @using (Html.BeginForm())
 {
@@ -15,7 +19,7 @@
 
     <div class="form-horizontal">
 
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
@@ -130,6 +134,8 @@
             </div>
         </div>
     </div>
+    
+   
 }
 
 
@@ -223,23 +229,23 @@
 
         });
 
-                //$("#Area_ID").change(function () {
-                //    $.ajax({
-                //        type: "GET",
-                //        url: "/Customer/getSluts",
-                //        data: "{}",
-                //        success: function (data) {
-                //            for (var i = 0; i < data.length; i++) {
+                            //$("#Area_ID").change(function () {
+                            //    $.ajax({
+                            //        type: "GET",
+                            //        url: "/Customer/getSluts",
+                            //        data: "{}",
+                            //        success: function (data) {
+                            //            for (var i = 0; i < data.length; i++) {
 
-                //                $("#slut" + data[i].Slut_ID).click(function () {
-                //                    $("#SelectedSlut").text(data[i].Area_ID);
-                //                }
-                //                );
-                //            }
-                //        }
+                            //                $("#slut" + data[i].Slut_ID).click(function () {
+                            //                    $("#SelectedSlut").text(data[i].Area_ID);
+                            //                }
+                            //                );
+                            //            }
+                            //        }
 
-                //    });
-                //});
+                            //    });
+                            //});
 
 
 
