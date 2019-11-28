@@ -58,7 +58,17 @@ namespace Rkna_Project.Controllers
         [Authorize(Roles = "user,admin,manger")]
         public ActionResult Create()
         {
-            ViewBag.Car_Owner_ID = new SelectList(db.AspNetUsers, "Id", "Email");
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            AspNetUserRole Ob = db.AspNetUserRoles.Where(r => r.UserId == user.Id).FirstOrDefault();
+
+            if (Ob.RoleId == "user")
+            {
+                ViewBag.Car_Owner_ID = db.AspNetUsers.Where(c => c.Id == user.Id).ToList();
+            }
+            else if (Ob.RoleId == "admin" || Ob.RoleId == "manager")
+            {
+                ViewBag.Car_Owner_ID = db.AspNetUsers.ToList();
+            }
             return View();
         }
 
@@ -94,7 +104,17 @@ namespace Rkna_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Car_Owner_ID = new SelectList(db.AspNetUsers, "Id", "Email", car_Specifications_Table.Car_Owner_ID);
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            AspNetUserRole Ob = db.AspNetUserRoles.Where(r => r.UserId == user.Id).FirstOrDefault();
+
+            if (Ob.RoleId == "user")
+            {
+                ViewBag.Car_Owner_ID = db.AspNetUsers.Where(c => c.Id == user.Id).ToList();
+            }
+            else if (Ob.RoleId == "admin" || Ob.RoleId == "manager")
+            {
+                ViewBag.Car_Owner_ID = db.AspNetUsers.ToList();
+            }
             return View(car_Specifications_Table);
         }
 
@@ -112,7 +132,17 @@ namespace Rkna_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Car_Owner_ID = new SelectList(db.AspNetUsers, "Id", "Email", car_Specifications_Table.Car_Owner_ID);
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            AspNetUserRole Ob = db.AspNetUserRoles.Where(r => r.UserId == user.Id).FirstOrDefault();
+
+            if (Ob.RoleId == "user")
+            {
+                ViewBag.Car_Owner_ID = db.AspNetUsers.Where(c => c.Id == user.Id).ToList();
+            }
+            else if (Ob.RoleId == "admin" || Ob.RoleId == "manager")
+            {
+                ViewBag.Car_Owner_ID = db.AspNetUsers.ToList();
+            }
             return View(car_Specifications_Table);
         }
 

@@ -22,17 +22,10 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Customer_ID, "User Acount", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Customer_ID, new { htmlAttributes = new { @class = "form-control ", disabled = "disabled", @Value = ViewBag.Customer } })
-                <br />
-                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
-
-
+            <div class="col-md-10" style=" display: none;">
+                @Html.TextBox("Customer_ID", ViewBag.Customer as string , new { htmlAttributes = new {  @class = "form-control  ",  disabled = "disabled", @Value = ViewBag.Customer } })
             </div>
-        </div>
+             <br />
 
         <div class="form-group">
             @Html.Label("Governorate Name", htmlAttributes: new { @class = "control-label col-md-6" })

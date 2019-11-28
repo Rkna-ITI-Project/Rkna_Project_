@@ -85,26 +85,21 @@ namespace Rkna_Project.Controllers
                     {
                         var Obj = RknaContext.AspNetUsers.Where(Us => Us.Email == model.Email).FirstOrDefault();
                         var UserRule = RknaContext.AspNetUserRoles.Where(user => user.UserId == Obj.Id).FirstOrDefault();
-                        //var rule = (from userRule in RknaContext.AspNetUserRoles
-                        //            where userRule.UserId == UserRule.UserId
-                        //            join Rul in RknaContext.AspNetRoles on
-                        //            userRule.RoleId equals Rul.Id
-                        //            select Rul.Name
-                        //           ).FirstOrDefault();
+                  
                         LoginUserRule.SetRule(UserRule.RoleId);
                         if (UserRule.RoleId == "admin")
                         {
-                            return RedirectToLocal("~/Governorate/Index");
+                            return RedirectToLocal("~/Manag_Account/Index");
 
                         }
                         else if (UserRule.RoleId == "manger")
                         {
-                            return RedirectToLocal("~/Governorate/Index");
+                            return RedirectToLocal("~/Company/Index");
 
                         }
                         else
                         {
-                            return RedirectToLocal("~/Home/Index");
+                            return RedirectToLocal("~/Home/About");
 
                         }
                     }

@@ -66,7 +66,7 @@ namespace Rkna_Project.Controllers
             
            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             
-            ViewBag.Customer = user.Email;
+            ViewBag.Customer = user.Id;
             ViewBag.Car_Specifications = db.Car_Specifications_Table.Where(c=>c.Car_Owner_ID==user.Id).ToList();
             ViewBag.Slut_ID = db.Slut_Table.ToList();
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();
@@ -110,7 +110,7 @@ namespace Rkna_Project.Controllers
             }
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
-            ViewBag.Customer = user.Email;
+            ViewBag.Customer = user;
             ViewBag.Car_Specifications = db.Car_Specifications_Table.Where(c => c.Car_Owner_ID == user.Id).ToList();
             ViewBag.Slut_ID = db.Slut_Table.ToList();
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();
@@ -131,9 +131,12 @@ namespace Rkna_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Customer_ID = new SelectList(db.AspNetUsers, "Id", "Email", customer_Slut_Table.Customer_ID);
-            ViewBag.Car_Spe_ID = new SelectList(db.Car_Specifications_Table, "Car_Spe_ID", "Car_Owner_ID", customer_Slut_Table.Car_Spe_ID);
-            ViewBag.Slut_ID = new SelectList(db.Slut_Table, "Slut_ID", "Name", customer_Slut_Table.Slut_ID);
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            ViewBag.Customer = user.Id;
+            ViewBag.Car_Specifications = db.Car_Specifications_Table.Where(c => c.Car_Owner_ID == user.Id).ToList();
+            ViewBag.Slut_ID = db.Slut_Table.ToList();
+            ViewBag.Governorate_Table = db.Governorate_Table.ToList();
             return View(customer_Slut_Table);
         }
 
@@ -153,7 +156,7 @@ namespace Rkna_Project.Controllers
             }
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
-            ViewBag.Customer = user.Email;
+            ViewBag.Customer = user.Id;
             ViewBag.Car_Specifications = db.Car_Specifications_Table.Where(c => c.Car_Owner_ID == user.Id).ToList();
             ViewBag.Slut_ID = db.Slut_Table.ToList();
             ViewBag.Governorate_Table = db.Governorate_Table.ToList();
