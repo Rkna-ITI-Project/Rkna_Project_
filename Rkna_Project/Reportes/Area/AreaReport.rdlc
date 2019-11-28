@@ -279,7 +279,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>States Name</Value>
+                                    <Value>City Name</Value>
                                     <Style>
                                       <Color>White</Color>
                                     </Style>
@@ -1218,7 +1218,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Area Count in Gove and State</Caption>
+                <Caption />
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -1581,7 +1581,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Area by hour rate</Caption>
+                <Caption />
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -1944,7 +1944,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Gov by hour rate</Caption>
+                <Caption />
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -2307,7 +2307,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>State  by hour rate</Caption>
+                <Caption />
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>

@@ -40,6 +40,25 @@ namespace Rkna_Project.Controllers
             ViewBag.Area_ID =db.AspNetUsers.Where(use=>use.Id==id).FirstOrDefault();
             return View(UserRole);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
+        public ActionResult Edit( AspNetUserRole AspNetUserRole)
+        {
+            AspNetUserRole Obj = db.AspNetUserRoles.Where(r=>r.UserId==AspNetUserRole.UserId).FirstOrDefault();
+
+            if (ModelState.IsValid)
+            {
+                Obj = AspNetUserRole;
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+
+            return View(AspNetUserRole);
+        }
+
         [Authorize(Roles = "admin")]
         public ActionResult Delete(string id)
         {

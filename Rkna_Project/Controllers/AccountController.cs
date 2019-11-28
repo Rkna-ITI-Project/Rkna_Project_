@@ -57,8 +57,17 @@ namespace Rkna_Project.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            if (user == null)
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                return View();
+            }
+            else
+            {
+                return Redirect("~/Home/About");
+
+            }
         }
 
         //
@@ -99,7 +108,7 @@ namespace Rkna_Project.Controllers
                         }
                         else
                         {
-                            return RedirectToLocal("~/Home/About");
+                            return RedirectToLocal("~/Home/Index");
 
                         }
                     }
@@ -192,7 +201,7 @@ namespace Rkna_Project.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "About");
 
                 }
                 AddErrors(result);

@@ -105,6 +105,8 @@ namespace Rkna_Project.Controllers
             if (ModelState.IsValid)
             {
                 db.Customer_Slut_Table.Add(customer_Slut_Table);
+                Slut_Table Obj = db.Slut_Table.Where(sl => sl.Slut_ID == customer_Slut_Table.Slut_ID).FirstOrDefault();
+                Obj.Slut_State = true;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
